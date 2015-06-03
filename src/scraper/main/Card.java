@@ -1,4 +1,7 @@
 package scraper.main;
+
+import scraper.util.shared.SharedResources;
+
 public class Card {
 	String set = "t";
 	String name = "t";
@@ -21,7 +24,7 @@ public class Card {
 	}
 
 	public void setMintPrice(String mintPrice) {
-		this.mintPrice = mintPrice.replace(",","");
+		this.mintPrice = mintPrice.replace(",","").replace("View Details", "").trim();
 	}
 
 	public String getPldPrice() {
@@ -29,7 +32,7 @@ public class Card {
 	}
 
 	public void setPldPrice(String pldPrice) {
-		this.pldPrice = pldPrice.replace(",","");
+		this.pldPrice = pldPrice.replace(",","").replace("View Details", "").trim();
 	}
 	
 	
@@ -88,9 +91,9 @@ public class Card {
 		return temp;
 	}
 
-	public String toString(int nameLength, int setLength) {
-		String temp  = String.format("%-" + (nameLength+5) + 
-									"s %-" + (setLength+5) + 
+	public String toString() {
+		String temp  = String.format("%-" + (SharedResources.nameLength+5) + 
+									"s %-" + (SharedResources.setLength+5) + 
 									"s %-10s %-10s %-10s %-10s %-20s",this.name,this.set,this.mintPrice,this.pldPrice,this.quantity,this.foil,this.site);
 		return temp;
 	}

@@ -102,19 +102,21 @@ public class ABUGames {
 					SharedResources.cards.add(card);
 				}
 				
-				List<RemoteWebElement> allLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByClassName('cardlink')");
-				for(RemoteWebElement link : allLinks) {
-					if(link.getText().equals("Next >")) {
-						pagesRemaining = true;
-						link.click();
-						break;
-					} else {
-						pagesRemaining = false;
-					}
-				}
 			} catch (java.lang.IndexOutOfBoundsException e) {
 				ScraperUtil.log("Something wrong: " + url);
 				e.printStackTrace();
+			}
+			
+			List<RemoteWebElement> allLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByClassName('cardlink')");
+			pagesRemaining = false;
+			for(RemoteWebElement link : allLinks) {
+				if(link.getText().equals("Next >")) {
+					pagesRemaining = true;
+					link.click();
+					break;
+				} else {
+					pagesRemaining = false;
+				}
 			}
 		}
 	}
@@ -129,7 +131,7 @@ public class ABUGames {
 			
 		for(RemoteWebElement set : setLinks) {
 			String link = set.getAttribute("href");
-			if(link.contains("/buylist.cgi?command=search&edition=")) {
+			if(link.contains("/set")) {//if(link.contains("/buylist.cgi?command=search&edition=")) {
 				sets.add(link);
 			}				
 		}

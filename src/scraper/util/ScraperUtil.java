@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import scraper.util.shared.SharedResources;
 
@@ -68,7 +71,11 @@ public class ScraperUtil {
 		log("Total Time Elapsed: " + hrs + " hours " + mins + " minutes " + seconds + " seconds");
 	}
 	
-	public static void log(Object text) {
+	public static void log(Object info) {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Calendar cal = Calendar.getInstance();
+		String text = dateFormat.format(cal.getTime()) + ":  " + info.toString();
+		
 		SharedResources.logger.println(text);
 		System.out.println(text);
 	}

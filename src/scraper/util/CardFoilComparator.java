@@ -27,7 +27,7 @@ public class CardFoilComparator implements Comparator<Card>
 				return 0;
 			}
 		} catch (Exception e) {
-			ScraperUtil.log("Comparator Error");
+			ScraperUtil.log("Foil Comparator Error");
 			ScraperUtil.log(one.toString());
 			ScraperUtil.log(two.toString());
 			return 0;
