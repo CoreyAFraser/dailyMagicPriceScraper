@@ -14,9 +14,7 @@ public class CardNameComparator implements Comparator<Card>
 				return one.getName().compareTo(two.getName());
 			}
 		} catch (Exception e) {
-			ScraperUtil.log("Name Comparator Error");
-			ScraperUtil.log(one.toString());
-			ScraperUtil.log(two.toString());
+			ScraperUtil.log("Name Comparator Error \n" + one.toString() + "\n" + two.toString());
 			return 0;
 		}
 	}

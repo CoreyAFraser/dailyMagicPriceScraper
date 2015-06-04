@@ -28,9 +28,7 @@ public class CardPriceComparator implements Comparator<Card>
 				}
 			} 
 		} catch (Exception e) {
-			ScraperUtil.log("Price Comparator Error");
-			ScraperUtil.log(one.toString());
-			ScraperUtil.log(two.toString());
+			ScraperUtil.log("Price Comparator Error \n" + one.toString() + "\n" + two.toString());
 			return 0;
 		}
 	}

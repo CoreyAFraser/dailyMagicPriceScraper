@@ -1,6 +1,10 @@
 package scraper.site.selenium;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -114,15 +118,41 @@ public class BGs {
 	private static LinkedHashSet<String> getAllSets() throws MalformedURLException, Exception {
 		LinkedHashSet<String> sets = new LinkedHashSet<String>();
 		
-		SharedResources.driver.navigate().to("http://store.battlegroundgames.com/buylist");
+		/*SharedResources.driver.navigate().to("http://store.battlegroundgames.com/buylist");
 
 		List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.querySelectorAll('.depth_3 a')");
 			
 		for(RemoteWebElement set : setLinks) {
 			String link = set.getAttribute("href");
 				sets.add(link);				
+		}*/
+		
+		URLConnection urlConnection;
+
+		URL url = new URL("http://store.battlegroundgames.com/buylist");
+		urlConnection = url.openConnection();
+
+		BufferedReader dis = new BufferedReader(new InputStreamReader(
+				urlConnection.getInputStream()));
+
+		String tmp = "";
+		Card card = new Card();
+		int beginIndex = 0;
+		int endIndex = 0;
+		String href = "";
+		while ((tmp = dis.readLine()) != null) {
+			if ((beginIndex = tmp.indexOf("<a href=")) != -1) {
+				beginIndex = tmp.indexOf("\"",beginIndex)+1;
+				endIndex = tmp.indexOf("\"",beginIndex);
+				href = tmp.substring(beginIndex,endIndex).trim();
+				if(href.length() > 1 && href.contains("/buylist/magic_singles-")) {
+					sets.add(href);
+					System.out.println(href);
+				}
+			}
 		}
-	     
+		dis.close();
+		System.out.println(sets.size());
 		return sets;
 	}
 

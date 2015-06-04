@@ -148,7 +148,7 @@ public class Scrape extends TimerTask {
 				}
 				ScraperUtil.calculateElapsedTime();
 
-				try {
+				/*try {
 					ScraperUtil.log("BGs Starting");
 					BGs.getCards();
 					ScraperUtil.log("Bgs Done");
@@ -157,7 +157,7 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("BGs Error");
 					e.printStackTrace(SharedResources.logger);
 				}
-				ScraperUtil.calculateElapsedTime();
+				ScraperUtil.calculateElapsedTime();*/
 				
 				try {
 					ScraperUtil.log("ABU Starting");

@@ -14,9 +14,7 @@ public class CardSetComparator implements Comparator<Card>
 				return one.getSet().compareTo(two.getSet());
 			}
 		} catch (Exception e) {
-			ScraperUtil.log("Set Comparator Error");
-			ScraperUtil.log(one.toString());
-			ScraperUtil.log(two.toString());
+			ScraperUtil.log("Set Comparator Error \n" + one.toString() + "\n" + two.toString());
 			return 0;
 		}
 	}
