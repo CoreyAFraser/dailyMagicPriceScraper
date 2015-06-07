@@ -80,9 +80,10 @@ public class ChannelFireball {
 					
 				}
 			} catch(java.lang.ArrayIndexOutOfBoundsException e) {
-				ScraperUtil.log(prices.length);
-				ScraperUtil.log(cardNames.length);
-				ScraperUtil.log(qtys.length);
+				ScraperUtil.log("Page: " + pages[i]);
+				ScraperUtil.log("  Prices: " + prices.length);
+				ScraperUtil.log("  Names: " + cardNames.length);
+				ScraperUtil.log("  Quantities: " + qtys.length);
 				e.printStackTrace(SharedResources.logger);
 			}
 		}

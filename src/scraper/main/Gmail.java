@@ -21,7 +21,7 @@ import scraper.util.shared.SharedResources;
 
 public class Gmail {
 
-	public static void send(String eMail, String fileName, String message) {
+	public static void send(String eMail,String path, String fileName, String message) {
 
 		final String userName = "DailyMagicList@gmail.com";
 		final String password = "dailyMagicListBanana";
@@ -66,7 +66,7 @@ public class Gmail {
 	 
 	        MimeBodyPart attachPart = new MimeBodyPart();
 	        
-	        attachPart.attachFile(".\\priceLists\\"+fileName);
+	        attachPart.attachFile("./" + path +fileName);
 	                
 	        multipart.addBodyPart(attachPart);
 	

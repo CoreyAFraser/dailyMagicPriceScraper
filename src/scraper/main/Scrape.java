@@ -70,7 +70,7 @@ public class Scrape extends TimerTask {
 		String fileName;
 		
 		try {
-			path = "priceLists\\";
+			path = "priceLists/";
 			fileName = "priceList-"+name+"-" + dateFormat.format(date);
 			PrintWriter writer = new PrintWriter(path + fileName + ".html", "UTF-8");
 			ScraperUtil.log("Writing Cards to File");
@@ -88,7 +88,7 @@ public class Scrape extends TimerTask {
 			ScraperUtil.log("Zipping File " + fileName + ".html to " + fileName + ".zip");
 			zipFile(path, fileName);
 			ScraperUtil.log("Sending List to " + eMail + "  " + fileName + ".zip");
-			Gmail.send(eMail, fileName + ".zip", message);
+			Gmail.send(eMail, path, fileName + ".zip", message);
 			ScraperUtil.log("Done sending E-mail");
 			ScraperUtil.calculateElapsedTime();
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {

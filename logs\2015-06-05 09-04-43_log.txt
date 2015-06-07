@@ -1,0 +1,47 @@
+2015/06/05 09:04:43:  Started Successfully
+2015/06/05 09:04:43:  StrikeZone Starting
+2015/06/05 09:04:45:  StrikeZone Done
+2015/06/05 09:04:45:  Time Elapsed: 0 hours 0 minutes 1.0 seconds
+2015/06/05 09:04:45:  Troll and Toad Starting
+2015/06/05 09:04:57:  Troll and Toad Done
+2015/06/05 09:04:57:  Time Elapsed: 0 hours 0 minutes 12.0 seconds
+2015/06/05 09:04:57:  Starting Browser
+2015/06/05 09:04:57:  Browser Open
+2015/06/05 09:04:57:  Time Elapsed: 0 hours 0 minutes 0.0 seconds
+2015/06/05 09:04:57:  Sorting Cards
+java.lang.NullPointerException
+	at scraper.main.Scrape.run(Scrape.java:198)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2015/06/05 09:04:58:  Writing Cards to File
+2015/06/05 09:04:59:  Zipping File priceList-Corey-2015-06-05.html to priceList-Corey-2015-06-05.zip
+2015/06/05 09:04:59:  Sending List to CoreyAFraser@gmail.com  priceList-Corey-2015-06-05.zip
+javax.mail.MessagingException: IOException while sending message;
+  nested exception is:
+	java.io.FileNotFoundException: .\priceLists\priceList-Corey-2015-06-05.zip (No such file or directory)
+	at com.sun.mail.smtp.SMTPTransport.sendMessage(SMTPTransport.java:1167)
+	at javax.mail.Transport.send0(Transport.java:195)
+	at javax.mail.Transport.send(Transport.java:124)
+	at scraper.main.Gmail.send(Gmail.java:78)
+	at scraper.main.Scrape.sendEmail(Scrape.java:91)
+	at scraper.main.Scrape.run(Scrape.java:210)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: java.io.FileNotFoundException: .\priceLists\priceList-Corey-2015-06-05.zip (No such file or directory)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at javax.activation.FileDataSource.getInputStream(FileDataSource.java:97)
+	at javax.activation.DataHandler.writeTo(DataHandler.java:305)
+	at javax.mail.internet.MimeBodyPart.writeTo(MimeBodyPart.java:1485)
+	at javax.mail.internet.MimeBodyPart.writeTo(MimeBodyPart.java:865)
+	at javax.mail.internet.MimeMultipart.writeTo(MimeMultipart.java:462)
+	at com.sun.mail.handlers.multipart_mixed.writeTo(multipart_mixed.java:103)
+	at javax.activation.ObjectDataContentHandler.writeTo(DataHandler.java:889)
+	at javax.activation.DataHandler.writeTo(DataHandler.java:317)
+	at javax.mail.internet.MimeBodyPart.writeTo(MimeBodyPart.java:1485)
+	at javax.mail.internet.MimeMessage.writeTo(MimeMessage.java:1773)
+	at com.sun.mail.smtp.SMTPTransport.sendMessage(SMTPTransport.java:1119)
+	... 7 more
+2015/06/05 09:05:02:  Done sending E-mail
+2015/06/05 09:05:02:  Time Elapsed: 0 hours 0 minutes 4.0 seconds
+2015/06/05 09:05:02:  Total Time Elapsed: 0 hours 0 minutes 19.0 seconds

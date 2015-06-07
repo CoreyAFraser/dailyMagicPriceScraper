@@ -1,0 +1,110 @@
+2015/06/05 00:03:06:  Started Successfully
+2015/06/05 00:03:06:  StrikeZone Starting
+2015/06/05 00:03:08:  StrikeZone Done
+2015/06/05 00:03:08:  Time Elapsed: 0 hours 0 minutes 1.0 seconds
+2015/06/05 00:03:08:  Troll and Toad Starting
+2015/06/05 00:03:22:  Troll and Toad Done
+2015/06/05 00:03:22:  Time Elapsed: 0 hours 0 minutes 14.0 seconds
+2015/06/05 00:03:22:  Starting Browser
+2015/06/05 00:03:42:  Browser Open
+2015/06/05 00:03:42:  Time Elapsed: 0 hours 0 minutes 20.000000000000004 seconds
+2015/06/05 00:03:42:  Untapped Games Starting
+2015/06/05 00:15:30:  Untapped Games Done
+2015/06/05 00:15:30:  Time Elapsed: 0 hours 11 minutes 46.99999999999999 seconds
+2015/06/05 00:15:30:  ABU Starting
+2015/06/05 00:20:38:  Something wrong: http://www.abugames.com/set123/Sell-8th-Edition-S-Cards-Magic-The-Gathering-Singles-Cards.html
+2015/06/05 03:22:36:  Something wrong: http://www.abugames.com/set359/Sell-Foreign---Magic-2014-Magic-The-Gathering-Singles-Cards.html
+2015/06/05 03:23:49:  Something wrong: http://www.abugames.com/set360/Sell-Foreign---Magic-2014-Foil-Magic-The-Gathering-Singles-Cards.html
+2015/06/05 03:28:01:  Something wrong: http://www.abugames.com/set336/Sell-Foreign---Mirrodin-Besieged-Magic-The-Gathering-Singles-Cards.html
+2015/06/05 03:29:04:  Something wrong: http://www.abugames.com/set337/Sell-Foreign---Mirrodin-Besieged-Foil-Magic-The-Gathering-Singles-Cards.html
+2015/06/05 03:30:10:  Something wrong: http://www.abugames.com/set323/Sell-Foreign---New-Phyrexia-Magic-The-Gathering-Singles-Cards.html
+2015/06/05 03:31:15:  Something wrong: http://www.abugames.com/set324/Sell-Foreign---New-Phyrexia-Foil-Magic-The-Gathering-Singles-Cards.html
+2015/06/05 05:06:13:  ABU Done
+2015/06/05 05:06:13:  Time Elapsed: 4 hours 50 minutes 42.99999999999926 seconds
+2015/06/05 05:06:13:  Channel Fireball Starting
+2015/06/05 05:09:21:  Page/Data Not Found: http://store.channelfireball.com/buylist/magic_singles-gift_boxes-anthologies/87
+2015/06/05 05:16:42:  Page/Data Not Found: http://store.channelfireball.com/buylist/magic_singles-gift_boxes-battle_royal/85
+2015/06/05 05:16:44:  Page/Data Not Found: http://store.channelfireball.com/buylist/magic_singles-gift_boxes-beatdown/84
+2015/06/05 05:31:36:  Page/Data Not Found: http://store.channelfireball.com/buylist/magic_singles-commander_oversized_cards/610
+2015/06/05 05:43:31:  Page/Data Not Found: http://store.channelfireball.com/buylist/magic_singles-gift_boxes-deckmaster/83
+2015/06/05 05:48:49:  Page/Data Not Found: http://store.channelfireball.com/buylist/magic_singles-duel_decks-duel_decks_elspeth_vs_kiora/5023
+2015/06/05 05:56:32:  Page/Data Not Found: http://store.channelfireball.com/buylist/magic_singles-magic_promos-euro_land_promos/115
+2015/06/05 06:54:45:  0
+2015/06/05 06:54:45:  18
+2015/06/05 06:54:45:  18
+java.lang.ArrayIndexOutOfBoundsException: 0
+	at scraper.site.selenium.ChannelFireball.getAllCards(ChannelFireball.java:56)
+	at scraper.site.selenium.ChannelFireball.getCards(ChannelFireball.java:31)
+	at scraper.main.Scrape.run(Scrape.java:176)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2015/06/05 08:12:45:  0
+2015/06/05 08:12:45:  25
+2015/06/05 08:12:45:  25
+java.lang.ArrayIndexOutOfBoundsException
+2015/06/05 08:15:32:  Channel Fireball Done
+2015/06/05 08:15:32:  Time Elapsed: 3 hours 9 minutes 17.999999999999297 seconds
+2015/06/05 08:15:32:  Sorting Cards
+2015/06/05 08:16:02:  Writing Cards to File
+2015/06/05 08:16:03:  Zipping File priceList-Corey-2015-06-05.html to priceList-Corey-2015-06-05.zip
+2015/06/05 08:16:05:  Sending List to CoreyAFraser@gmail.com  priceList-Corey-2015-06-05.zip
+javax.mail.MessagingException: IOException while sending message;
+  nested exception is:
+	java.io.FileNotFoundException: .\priceLists\priceList-Corey-2015-06-05.zip (No such file or directory)
+	at com.sun.mail.smtp.SMTPTransport.sendMessage(SMTPTransport.java:1167)
+	at javax.mail.Transport.send0(Transport.java:195)
+	at javax.mail.Transport.send(Transport.java:124)
+	at scraper.main.Gmail.send(Gmail.java:78)
+	at scraper.main.Scrape.sendEmail(Scrape.java:91)
+	at scraper.main.Scrape.run(Scrape.java:210)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: java.io.FileNotFoundException: .\priceLists\priceList-Corey-2015-06-05.zip (No such file or directory)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at javax.activation.FileDataSource.getInputStream(FileDataSource.java:97)
+	at javax.activation.DataHandler.writeTo(DataHandler.java:305)
+	at javax.mail.internet.MimeBodyPart.writeTo(MimeBodyPart.java:1485)
+	at javax.mail.internet.MimeBodyPart.writeTo(MimeBodyPart.java:865)
+	at javax.mail.internet.MimeMultipart.writeTo(MimeMultipart.java:462)
+	at com.sun.mail.handlers.multipart_mixed.writeTo(multipart_mixed.java:103)
+	at javax.activation.ObjectDataContentHandler.writeTo(DataHandler.java:889)
+	at javax.activation.DataHandler.writeTo(DataHandler.java:317)
+	at javax.mail.internet.MimeBodyPart.writeTo(MimeBodyPart.java:1485)
+	at javax.mail.internet.MimeMessage.writeTo(MimeMessage.java:1773)
+	at com.sun.mail.smtp.SMTPTransport.sendMessage(SMTPTransport.java:1119)
+	... 7 more
+2015/06/05 08:16:10:  Done sending E-mail
+2015/06/05 08:16:10:  Time Elapsed: 0 hours 0 minutes 38.0 seconds
+2015/06/05 08:16:10:  Writing Cards to File
+2015/06/05 08:16:11:  Zipping File priceList-Pat-2015-06-05.html to priceList-Pat-2015-06-05.zip
+2015/06/05 08:16:11:  Sending List to patbrodericksnc@yahoo.com  priceList-Pat-2015-06-05.zip
+javax.mail.MessagingException: IOException while sending message;
+  nested exception is:
+	java.io.FileNotFoundException: .\priceLists\priceList-Pat-2015-06-05.zip (No such file or directory)
+	at com.sun.mail.smtp.SMTPTransport.sendMessage(SMTPTransport.java:1167)
+	at javax.mail.Transport.send0(Transport.java:195)
+	at javax.mail.Transport.send(Transport.java:124)
+	at scraper.main.Gmail.send(Gmail.java:78)
+	at scraper.main.Scrape.sendEmail(Scrape.java:91)
+	at scraper.main.Scrape.run(Scrape.java:211)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: java.io.FileNotFoundException: .\priceLists\priceList-Pat-2015-06-05.zip (No such file or directory)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at javax.activation.FileDataSource.getInputStream(FileDataSource.java:97)
+	at javax.activation.DataHandler.writeTo(DataHandler.java:305)
+	at javax.mail.internet.MimeBodyPart.writeTo(MimeBodyPart.java:1485)
+	at javax.mail.internet.MimeBodyPart.writeTo(MimeBodyPart.java:865)
+	at javax.mail.internet.MimeMultipart.writeTo(MimeMultipart.java:462)
+	at com.sun.mail.handlers.multipart_mixed.writeTo(multipart_mixed.java:103)
+	at javax.activation.ObjectDataContentHandler.writeTo(DataHandler.java:889)
+	at javax.activation.DataHandler.writeTo(DataHandler.java:317)
+	at javax.mail.internet.MimeBodyPart.writeTo(MimeBodyPart.java:1485)
+	at javax.mail.internet.MimeMessage.writeTo(MimeMessage.java:1773)
+	at com.sun.mail.smtp.SMTPTransport.sendMessage(SMTPTransport.java:1119)
+	... 7 more
+2015/06/05 08:16:12:  Done sending E-mail
+2015/06/05 08:16:12:  Time Elapsed: 0 hours 0 minutes 2.0 seconds
+2015/06/05 08:16:12:  Total Time Elapsed: 8 hours 13 minutes 6.000000000001364 seconds
