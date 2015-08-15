@@ -1,5 +1,6 @@
 package scraper.main;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
@@ -66,7 +67,7 @@ public class Gmail {
 	 
 	        MimeBodyPart attachPart = new MimeBodyPart();
 	        
-	        attachPart.attachFile("./" + path +fileName);
+	        attachPart.attachFile("." + File.separator + path + fileName);
 	                
 	        multipart.addBodyPart(attachPart);
 	

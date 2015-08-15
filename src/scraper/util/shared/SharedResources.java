@@ -1,7 +1,7 @@
 package scraper.util.shared;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.openqa.selenium.WebDriver;
 
@@ -13,7 +13,7 @@ public class SharedResources {
     public static WebDriver driver;
     public static Long incrBegin;
 	public static Long incrEnd;
-	public static ArrayList<Card> cards;
+	public static CopyOnWriteArrayList<Card> cards;
 	public static PrintWriter logger;
 	public static Long begin;
 	public static Long end;

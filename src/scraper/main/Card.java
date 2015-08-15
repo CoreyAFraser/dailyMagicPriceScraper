@@ -1,5 +1,8 @@
 package scraper.main;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import scraper.util.shared.SharedResources;
 
 public class Card {
@@ -157,4 +160,36 @@ public class Card {
 	public void setFoil(String foil) {
 		this.foil = foil;
 	}
+	
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder(17,31).
+				append(set).
+				append(name).
+				append(foil).
+				append(mintPrice).
+				append(pldPrice).
+				append(quantity).
+				append(site).
+				toHashCode();
+	}
+	
+	@Override
+    public boolean equals(Object obj) {
+		if(obj == null) {
+			return false;
+		}
+       if (!(obj instanceof Card))
+            return false;
+        if (obj == this)
+            return true;
+
+        Card card = (Card) obj;
+        if(set.equals(card.set) && name.equals(card.name) && foil.equals(card.foil) && mintPrice.equals(card.mintPrice) && pldPrice.equals(card.pldPrice) &&
+        		quantity.equals(card.quantity) && site.equals(card.site)) {
+        	return true;
+        } else {
+        	return false;
+        }
+    }
 }
