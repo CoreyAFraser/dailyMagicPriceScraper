@@ -17,7 +17,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import scraper.site.StrikeZone;
+import scraper.site.TrollAndToad;
+import scraper.site.selenium.ABUGames;
 import scraper.site.selenium.BGs;
+import scraper.site.selenium.ChannelFireball;
+import scraper.site.selenium.UntappedGames;
 import scraper.util.CardFoilComparator;
 import scraper.util.CardNameComparator;
 import scraper.util.CardPriceComparator;
@@ -30,7 +37,7 @@ public class Scrape extends TimerTask {
 	DateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
 	Date date = new Date();
 	String eol = "<br>";// System.getProperty("line.separator");
-	String message = "New BGs Price List" + eol;
+	String message = "Combined Price List" + eol;
 	ArrayList<Card> cards = new ArrayList<Card>();
 
 	public void zipFile(String path, String file) {
@@ -104,37 +111,43 @@ public class Scrape extends TimerTask {
 			SharedResources.begin = System.currentTimeMillis();
 			SharedResources.cards = new CopyOnWriteArrayList<Card>();
 			try {
-				/*
-				 * try { ScraperUtil.log("StrikeZone Starting");
-				 * StrikeZone.getCards(); ScraperUtil.log("StrikeZone Done"); }
-				 * catch (java.io.FileNotFoundException e) { message = message +
-				 * "\r\nStrikeZone appears to be down";
-				 * ScraperUtil.log("StrikeZone Error");
-				 * e.printStackTrace(SharedResources.logger); }
-				 * ScraperUtil.calculateElapsedTime();
-				 * 
-				 * try { ScraperUtil.log("Troll and Toad Starting");
-				 * TrollAndToad.getCards();
-				 * ScraperUtil.log("Troll and Toad Done"); } catch
-				 * (java.io.FileNotFoundException e) { message = message + eol +
-				 * "Troll and Toad appears to be down";
-				 * ScraperUtil.log("Troll and Toad Error");
-				 * e.printStackTrace(SharedResources.logger); }
-				 * ScraperUtil.calculateElapsedTime();
-				 * 
-				 * ScraperUtil.log("Starting Browser"); SharedResources.driver =
-				 * new FirefoxDriver(); ScraperUtil.log("Browser Open");
-				 * ScraperUtil.calculateElapsedTime();
-				 * 
-				 * try { ScraperUtil.log("Untapped Games Starting");
-				 * UntappedGames.getCards();
-				 * ScraperUtil.log("Untapped Games Done"); } catch
-				 * (java.io.FileNotFoundException e) { message = message + eol +
-				 * "Untapped Games appears to be down";
-				 * ScraperUtil.log("Untapped Games Error");
-				 * e.printStackTrace(SharedResources.logger); }
-				 * ScraperUtil.calculateElapsedTime();
-				 */
+				try {
+					ScraperUtil.log("StrikeZone Starting");
+					StrikeZone.getCards(); ScraperUtil.log("StrikeZone Done");
+				} catch (java.io.FileNotFoundException e) { 
+					message = message + "\r\nStrikeZone appears to be down";
+					ScraperUtil.log("StrikeZone Error");
+					e.printStackTrace(SharedResources.logger); 
+				}
+				ScraperUtil.calculateElapsedTime();
+		 
+				try {
+					ScraperUtil.log("Troll and Toad Starting");
+					TrollAndToad.getCards();
+					ScraperUtil.log("Troll and Toad Done");
+				} catch(java.io.FileNotFoundException e) { 
+					message = message + eol + "Troll and Toad appears to be down";
+					ScraperUtil.log("Troll and Toad Error");
+					e.printStackTrace(SharedResources.logger);
+				}
+				ScraperUtil.calculateElapsedTime();
+				 
+				ScraperUtil.log("Starting Browser"); 
+				SharedResources.driver = new FirefoxDriver(); 
+				ScraperUtil.log("Browser Open");
+				ScraperUtil.calculateElapsedTime();
+				 
+				try { 
+					ScraperUtil.log("Untapped Games Starting");
+					UntappedGames.getCards();
+					ScraperUtil.log("Untapped Games Done"); 
+				} catch (java.io.FileNotFoundException e) { 
+					message = message + eol + "Untapped Games appears to be down";
+					ScraperUtil.log("Untapped Games Error");
+					e.printStackTrace(SharedResources.logger);
+				}
+				ScraperUtil.calculateElapsedTime();
+				
 
 				try {
 					ScraperUtil.log("BGs Starting");
@@ -147,24 +160,31 @@ public class Scrape extends TimerTask {
 				}
 				ScraperUtil.calculateElapsedTime();
 
-				/*
-				 * try { ScraperUtil.log("ABU Starting"); ABUGames.getCards();
-				 * ScraperUtil.log("ABU Done"); } catch
-				 * (java.io.FileNotFoundException e) { message = message + eol +
-				 * "ABU appears to be down"; ScraperUtil.log("ABU Error");
-				 * e.printStackTrace(SharedResources.logger); }
-				 * ScraperUtil.calculateElapsedTime();
-				 * 
-				 * 
-				 * try { ScraperUtil.log("Channel Fireball Starting");
-				 * ChannelFireball.getCards();
-				 * ScraperUtil.log("Channel Fireball Done"); } catch
-				 * (java.io.FileNotFoundException e) { message = message + eol +
-				 * "Channel Fireball appears to be down";
-				 * ScraperUtil.log("Channel Fireball Error");
-				 * e.printStackTrace(SharedResources.logger); }
-				 * ScraperUtil.calculateElapsedTime(); //
-				 * cards.addAll(GamingEtc.getCards()); /* try {
+				
+				try { 
+					ScraperUtil.log("ABU Starting");
+					ABUGames.getCards();
+					ScraperUtil.log("ABU Done");
+				} catch (java.io.FileNotFoundException e) {
+					message = message + eol +  "ABU appears to be down";
+					ScraperUtil.log("ABU Error");
+					e.printStackTrace(SharedResources.logger);
+				}
+				ScraperUtil.calculateElapsedTime();
+				  
+				  
+				try { 
+					ScraperUtil.log("Channel Fireball Starting");
+					ChannelFireball.getCards();
+					ScraperUtil.log("Channel Fireball Done"); 
+				} catch (java.io.FileNotFoundException e) { 
+					message = message + eol + "Channel Fireball appears to be down";
+					ScraperUtil.log("Channel Fireball Error");
+					e.printStackTrace(SharedResources.logger); 
+				}
+				ScraperUtil.calculateElapsedTime(); 
+				
+				/* cards.addAll(GamingEtc.getCards()); /* try {
 				 * ScraperUtil.log("TJ Games Starting"); TJ.getCards();
 				 * ScraperUtil.log("TJ Games Done"); } catch
 				 * (java.io.FileNotFoundException e) { message = message + eol +
@@ -176,7 +196,7 @@ public class Scrape extends TimerTask {
 
 				ScraperUtil.log("Sorting Cards");
 
-				// SharedResources.driver.close();
+				 SharedResources.driver.close();
 			} catch (IOException e) {
 				e.printStackTrace(SharedResources.logger);
 			} catch (Exception e) {
