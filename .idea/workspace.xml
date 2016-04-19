@@ -2,52 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60b1a9fe-1105-460c-8402-10d69d9203ec" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/jsoup-1.8.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/mail.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/selenium-java-2.53.0.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/selenium-java-2.53.0.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.classpath" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/libraries/seleniumpricescraper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.project" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.settings/org.eclipse.jdt.core.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/bin/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/seleniumpricescraper.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/scraper/site/selenium/CardKingdom.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs\2015-06-04 23-01-24_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs\2015-06-05 00-03-06_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs\2015-06-05 09-01-25_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs\2015-06-05 09-04-43_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs\2015-06-05 09-08-06_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs\2015-06-05 09-16-27_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs\2015-06-05 09-21-50_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs\2015-06-06 09-22-18_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs\2015-06-06 09-23-07_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists\priceList-Corey-2015-06-05.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists\priceList-Corey-2015-06-05.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists\priceList-Pat-2015-06-05.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists\priceList-Pat-2015-06-05.zip" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/priceList-Corey-2015-06-05.html" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/priceList-Corey-2015-06-05.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/priceList-Corey-2015-06-05.zip" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/priceList-Corey-2015-06-05.zip" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/selenium-java-2.45.0.zip" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/selenium-server-standalone-2.53.0.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/selenium-server-standalone-2.45.0.jar" afterPath="$PROJECT_DIR$/selenium-server-standalone-2.53.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/seleniumpricescraper.xml" afterPath="$PROJECT_DIR$/.idea/libraries/seleniumpricescraper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ie/moguntia/threads/ObjectQueue.java" afterPath="$PROJECT_DIR$/ie/moguntia/threads/ObjectQueue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ie/moguntia/webcrawler/PSucker.java" afterPath="$PROJECT_DIR$/ie/moguntia/webcrawler/PSucker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ie/moguntia/webcrawler/PSuckerThread.java" afterPath="$PROJECT_DIR$/ie/moguntia/webcrawler/PSuckerThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ie/moguntia/webcrawler/SaveURL.java" afterPath="$PROJECT_DIR$/ie/moguntia/webcrawler/SaveURL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ie/moguntia/webcrawler/URLQueue.java" afterPath="$PROJECT_DIR$/ie/moguntia/webcrawler/URLQueue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ie/moguntia/webcrawler/WSDLCrawler.java" afterPath="$PROJECT_DIR$/ie/moguntia/webcrawler/WSDLCrawler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ie/moguntia/webcrawler/WSDLCrawlerThread.java" afterPath="$PROJECT_DIR$/ie/moguntia/webcrawler/WSDLCrawlerThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scraper/main/Card.java" afterPath="$PROJECT_DIR$/src/scraper/main/Card.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scraper/main/Scrape.java" afterPath="$PROJECT_DIR$/src/scraper/main/Scrape.java" />
     </list>
     <ignored path="seleniumpricescraper.iws" />
@@ -85,8 +39,8 @@
       <file leaf-file-name="Scrape.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scraper/main/Scrape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+            <state relative-caret-position="2541">
+              <caret line="160" column="31" selection-start-line="160" selection-start-column="31" selection-end-line="160" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,10 +65,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1767" />
-    <option name="y" value="52" />
-    <option name="width" value="1537" />
-    <option name="height" value="986" />
+    <option name="x" value="1745" />
+    <option name="y" value="24" />
+    <option name="width" value="1615" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -143,24 +97,7 @@
     <panes>
       <pane id="Scratches" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seleniumpricescraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seleniumpricescraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seleniumpricescraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scope" />
@@ -290,7 +227,7 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1767" y="52" width="1537" height="986" extended-state="0" />
+    <frame x="1745" y="24" width="1615" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -301,7 +238,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946634" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5046404" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29157427" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35962877" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -463,8 +400,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scraper/main/Scrape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+        <state relative-caret-position="2541">
+          <caret line="160" column="31" selection-start-line="160" selection-start-column="31" selection-end-line="160" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

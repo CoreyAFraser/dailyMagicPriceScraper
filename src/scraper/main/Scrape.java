@@ -162,7 +162,7 @@ public class Scrape extends TimerTask {
 			Collections.sort(cards, new CardSetComparator());
 
 			sendEmail("Corey", "CoreyAFraser@gmail.com");
-			//sendEmail("Pat","patbrodericksnc@yahoo.com");
+			sendEmail("Pat","patbrodericksnc@yahoo.com");
 			ScraperUtil.calculateTotalElapsedTime();
 
 			SharedResources.logger.close();
