@@ -1,7 +1,10 @@
 package ie.moguntia.webcrawler;
 
-import java.net.*;
-import java.util.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
 
 /**
  * Class URLQueue

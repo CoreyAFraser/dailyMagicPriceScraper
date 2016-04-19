@@ -1,8 +1,5 @@
 package scraper.main;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-
 import scraper.util.shared.SharedResources;
 
 public class Card {
@@ -159,19 +156,6 @@ public class Card {
 	}
 	public void setFoil(String foil) {
 		this.foil = foil;
-	}
-	
-	@Override
-	public int hashCode() {
-		return new HashCodeBuilder(17,31).
-				append(set).
-				append(name).
-				append(foil).
-				append(mintPrice).
-				append(pldPrice).
-				append(quantity).
-				append(site).
-				toHashCode();
 	}
 	
 	@Override

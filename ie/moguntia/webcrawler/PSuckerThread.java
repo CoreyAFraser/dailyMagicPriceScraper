@@ -1,8 +1,9 @@
 package ie.moguntia.webcrawler;
 
-import ie.moguntia.threads.*;
-import java.net.*;
-import java.io.*;
+import ie.moguntia.threads.ControllableThread;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Vector;
 
 public class PSuckerThread extends ControllableThread {

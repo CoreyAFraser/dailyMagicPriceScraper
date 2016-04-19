@@ -1,5 +1,7 @@
 package ie.moguntia.threads;
-import java.util.*;
+
+import java.util.LinkedList;
+import java.util.Set;
 
 /**
  * Simple "reference" implementation of the queue interface
