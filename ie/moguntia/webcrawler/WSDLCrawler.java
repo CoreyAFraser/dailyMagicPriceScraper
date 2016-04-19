@@ -1,6 +1,10 @@
 package ie.moguntia.webcrawler;
-import ie.moguntia.threads.*;
-import java.net.*;
+
+import ie.moguntia.threads.MessageReceiver;
+import ie.moguntia.threads.Queue;
+import ie.moguntia.threads.ThreadController;
+
+import java.net.URL;
 
 public class WSDLCrawler implements MessageReceiver {
 	public WSDLCrawler(Queue q, int maxLevel, int maxThreads)
