@@ -86,7 +86,7 @@ public class Scrape extends TimerTask {
 				ScraperUtil.calculateElapsedTime();
 				
 
-				try {
+				/*try {
 					ScraperUtil.log("BGs Starting");
 					BGs.getCards();
 					ScraperUtil.log("Bgs Done");
@@ -95,7 +95,7 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("BGs Error");
 					e.printStackTrace(SharedResources.logger);
 				}
-				ScraperUtil.calculateElapsedTime();
+				ScraperUtil.calculateElapsedTime();*/
 
 				
 				try { 
@@ -205,7 +205,7 @@ public class Scrape extends TimerTask {
 
 		try {
 			path = "priceLists" + File.separator;
-			fileName = "BGs-priceList-Test-" + name + "-" + dateFormat.format(date);
+			fileName = name + "-pricelist-" + dateFormat.format(date);
 			PrintWriter writer = new PrintWriter(path + fileName + ".html",
 					"UTF-8");
 			ScraperUtil.log("Writing Cards to File");
