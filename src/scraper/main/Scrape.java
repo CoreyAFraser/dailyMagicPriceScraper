@@ -39,7 +39,7 @@ public class Scrape extends TimerTask {
 	public void run() {
 
 		try {
-			SharedResources.logger = new PrintWriter("logs\\"
+			SharedResources.logger = new PrintWriter("logs/"
 					+ dateTimeFormat.format(date) + "_log.txt", "UTF-8");
 
 			ScraperUtil.log("Started Successfully");
