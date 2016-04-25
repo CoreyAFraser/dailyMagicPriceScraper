@@ -1,49 +1,33 @@
-package scraper.site.selenium;
-
-import java.io.IOException;
+package scraper.site.IsleOfCards;
 
 import scraper.main.Card;
 import scraper.util.ScraperUtil;
 import scraper.util.shared.SharedResources;
 
-public class CardKingdom {
+import java.io.IOException;
+
+public class IsleOfCards {
 
     public static void getCards() throws IOException {
-        ScraperUtil.log("Starting CardKingdom");
-        boolean scraping = true;
-        String page;
-        try {
-            page = getPage("http://www.cardkingdom.com/purchasing/mtg_singles?filter[category_id]=0&filter[name]=&filter[rarity]=&filter[foils]=no");
-            ScraperUtil.log("Starting non-foils");
-            while (scraping) {
-                String url = getCardsFromPage(page, "");
-                if (url.isEmpty()) {
-                    scraping = false;
-                } else {
-                    page = getPage(url);
-                }
-            }
-        } catch (Exception e) {
-            System.out.println(e.getStackTrace());
-        }
+        ScraperUtil.log("Starting IsleOfCards");
 
-        page = getPage("http://www.cardkingdom.com/purchasing/mtg_singles?filter[category_id]=0&filter[name]=&filter[rarity]=&filter[foils]=yes");
-        ScraperUtil.log("Starting foils");
-        scraping = true;
-        while(scraping) {
-            String url = getCardsFromPage(page, "Foil");
-            if(url.isEmpty()) {
-                scraping = false;
-            } else {
-                page = getPage(url);
-            }
-        }
+        //https://www.isleofcards.com/card_categories.json
+        //Pull all set codes from above json file
+
+        //https://www.isleofcards.com/products/typeahead_editor.json?data[search]=&data[has_buy_capacity]=1&data[set_code]=SOI&data[rarity]=&data[sort]=name-asc
+        //make this query for each set code found in card_categories
+
+        String page = getPage("https://www.isleofcards.com/buylist");
+        getCardsFromPage(page);
+
+        ScraperUtil.log("IsleOfCards ending");
     }
 
-    private static String getCardsFromPage(String page, String foil) {
+    private static void getCardsFromPage(String page) {
         int index = 0,
                 beginIndex,
                 endIndex;
+        String foil = "";
         Card card = new Card();
 
         index = page.indexOf("<a0:tr bgcolor=", index + 1) + 1;
@@ -117,40 +101,10 @@ public class CardKingdom {
                     SharedResources.setLength = card.getSet().length();
 
                 SharedResources.cards.add(card);
-                //ScraperUtil.log("Card: " + card.getName());
             }
 
             index = endIndex;
         }
-
-        return getNextUrl(page);
-    }
-
-    private static String getNextUrl(String page) {
-        int nextIndex = page.indexOf("\">next");
-        int beginIndex, endIndex;
-        if (nextIndex != -1) {
-            int previousIndex = page.indexOf("pagination");
-            int linkIndex;
-            int previousLinkIndex = previousIndex;
-            boolean searchForNext = true;
-            while (searchForNext) {
-                linkIndex = page.indexOf("<a0:a href", previousLinkIndex + 1);
-                if (linkIndex > nextIndex) {
-                    searchForNext = false;
-                } else {
-                    previousLinkIndex = linkIndex;
-                }
-            }
-            beginIndex = page.indexOf("=\"", previousLinkIndex) + 2;
-            endIndex = page.indexOf("\"", beginIndex);
-            String url = page.substring(beginIndex, endIndex);
-            url = url.replaceAll("amp;", "");
-            //ScraperUtil.log("Its a URL: " + url);
-            return url;
-        }
-
-        return "";
     }
 
     private static String getPage(String urlStr)  {

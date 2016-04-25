@@ -45,61 +45,63 @@ public class ABUGames {
 		Card card = new Card();
 		
 		while(pagesRemaining) {
-			try{
-				cardsList = (ArrayList<RemoteWebElement>)  ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByName('inventoryform')");
-				text = (String)((JavascriptExecutor) SharedResources.driver).executeScript("return arguments[0].innerHTML",cardsList.get(0));
-				beginIndex = text.indexOf("<table");
-				if(setName.equals("!")) {
-					beginIndex = text.indexOf("<td colspan=\"3\">",beginIndex);
-					beginIndex = text.indexOf("<b ",beginIndex);
-					beginIndex = text.indexOf(">",beginIndex)+1;
-					endIndex = text.indexOf("<",beginIndex);
-					setName = text.substring(beginIndex,endIndex);
-					if(setName.contains("Foil")) {
-						setName = setName.replace("Foil", "").trim();
-						foil = true;
+			try {
+				cardsList = (ArrayList<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByName('inventoryform')");
+				if (cardsList != null && !cardsList.isEmpty()) {
+					text = (String) ((JavascriptExecutor) SharedResources.driver).executeScript("return arguments[0].innerHTML", cardsList.get(0));
+					beginIndex = text.indexOf("<table");
+					if (setName.equals("!")) {
+						beginIndex = text.indexOf("<td colspan=\"3\">", beginIndex);
+						beginIndex = text.indexOf("<b ", beginIndex);
+						beginIndex = text.indexOf(">", beginIndex) + 1;
+						endIndex = text.indexOf("<", beginIndex);
+						setName = text.substring(beginIndex, endIndex);
+						if (setName.contains("Foil")) {
+							setName = setName.replace("Foil", "").trim();
+							foil = true;
+						}
+						index = endIndex;
 					}
-					index = endIndex;
-				}
-				
-				while((index = text.indexOf("<td class=\"small\">",index)) != -1) {
-					card = new Card();
-					card.setSet(setName);
-					card.setSite("ABU");
-					
-					if(foil) {
-						card.setFoil("Foil");
-					} else {
-						card.setFoil("");
-					}	
-					
-					beginIndex = text.indexOf("cardlink",index);
-					beginIndex = text.indexOf(">",beginIndex)+1;
-					endIndex = text.indexOf("<",beginIndex);
-					card.setName(text.substring(beginIndex,endIndex));
-					
-					beginIndex = text.indexOf("small",endIndex);
-					beginIndex = text.indexOf(">",beginIndex)+1;
-					endIndex = text.indexOf("<",beginIndex);
-					card.setQuantity(text.substring(beginIndex,endIndex).trim());
-					
-					beginIndex = text.indexOf("small",endIndex);
-					beginIndex = text.indexOf(">",beginIndex)+1;
-					endIndex = text.indexOf("<",beginIndex);
-					card.setMintPrice(text.substring(beginIndex,endIndex).replace("$","").trim());
-					
-					beginIndex = text.indexOf("small",endIndex);
-					beginIndex = text.indexOf(">",beginIndex)+1;
-					endIndex = text.indexOf("<",beginIndex);
-					card.setPldPrice(text.substring(beginIndex,endIndex).replace("$","").trim());
-					
-					if(card.getName().length() > SharedResources.nameLength)
-			    		SharedResources.nameLength = card.getName().length();
-			    	if(card.getSet().length() > SharedResources.setLength)
-			    		SharedResources.setLength = card.getSet().length();
-					
-					index = endIndex;
-					SharedResources.cards.add(card);
+
+					while ((index = text.indexOf("<td class=\"small\">", index)) != -1) {
+						card = new Card();
+						card.setSet(setName);
+						card.setSite("ABU");
+
+						if (foil) {
+							card.setFoil("Foil");
+						} else {
+							card.setFoil("");
+						}
+
+						beginIndex = text.indexOf("cardlink", index);
+						beginIndex = text.indexOf(">", beginIndex) + 1;
+						endIndex = text.indexOf("<", beginIndex);
+						card.setName(text.substring(beginIndex, endIndex));
+
+						beginIndex = text.indexOf("small", endIndex);
+						beginIndex = text.indexOf(">", beginIndex) + 1;
+						endIndex = text.indexOf("<", beginIndex);
+						card.setQuantity(text.substring(beginIndex, endIndex).trim());
+
+						beginIndex = text.indexOf("small", endIndex);
+						beginIndex = text.indexOf(">", beginIndex) + 1;
+						endIndex = text.indexOf("<", beginIndex);
+						card.setMintPrice(text.substring(beginIndex, endIndex).replace("$", "").trim());
+
+						beginIndex = text.indexOf("small", endIndex);
+						beginIndex = text.indexOf(">", beginIndex) + 1;
+						endIndex = text.indexOf("<", beginIndex);
+						card.setPldPrice(text.substring(beginIndex, endIndex).replace("$", "").trim());
+
+						if (card.getName().length() > SharedResources.nameLength)
+							SharedResources.nameLength = card.getName().length();
+						if (card.getSet().length() > SharedResources.setLength)
+							SharedResources.setLength = card.getSet().length();
+
+						index = endIndex;
+						SharedResources.cards.add(card);
+					}
 				}
 				
 			} catch (java.lang.IndexOutOfBoundsException e) {
