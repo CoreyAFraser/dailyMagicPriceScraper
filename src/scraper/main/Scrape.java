@@ -48,7 +48,7 @@ public class Scrape extends TimerTask {
 			SharedResources.begin = System.currentTimeMillis();
 			SharedResources.cards = new CopyOnWriteArrayList<Card>();
 			try {
-				try {
+				/*try {
 					ScraperUtil.log("StrikeZone Starting");
 					StrikeZone.getCards(); ScraperUtil.log("StrikeZone Done");
 				} catch (java.io.FileNotFoundException e) { 
@@ -68,13 +68,13 @@ public class Scrape extends TimerTask {
 					e.printStackTrace(SharedResources.logger);
 				}
 				ScraperUtil.calculateElapsedTime();
-
+*/
 				ScraperUtil.log("Starting Browser"); 
 				SharedResources.driver = new FirefoxDriver();
 				ScraperUtil.log("Browser Open");
 				ScraperUtil.calculateElapsedTime();
 
-				try { 
+				/*try {
 					ScraperUtil.log("Untapped Games Starting");
 					UntappedGames.getCards();
 					ScraperUtil.log("Untapped Games Done"); 
@@ -98,7 +98,7 @@ public class Scrape extends TimerTask {
 				ScraperUtil.calculateElapsedTime();*/
 
 				
-				try { 
+				/*try {
 					ScraperUtil.log("ABU Starting");
 					ABUGames.getCards();
 					ScraperUtil.log("ABU Done");
@@ -143,12 +143,13 @@ public class Scrape extends TimerTask {
 
 				ScraperUtil.log("Sorting Cards");
 
-				 SharedResources.driver.quit();
+				SharedResources.driver.quit();
 			} catch (IOException e) {
 				e.printStackTrace(SharedResources.logger);
 			} catch (Exception e) {
 				ScraperUtil.log(e.getStackTrace());
 				e.printStackTrace(SharedResources.logger);
+				SharedResources.driver.quit();
 			}
 
 			Object cardsArray[] = SharedResources.cards.toArray();
@@ -162,7 +163,7 @@ public class Scrape extends TimerTask {
 			Collections.sort(cards, new CardSetComparator());
 
 			sendEmail("Corey", "CoreyAFraser@gmail.com");
-			sendEmail("Pat","patbrodericksnc@yahoo.com");
+			//sendEmail("Pat","patbrodericksnc@yahoo.com");
 			ScraperUtil.calculateTotalElapsedTime();
 
 			SharedResources.logger.close();
