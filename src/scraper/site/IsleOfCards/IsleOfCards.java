@@ -1,10 +1,18 @@
 package scraper.site.IsleOfCards;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import scraper.main.Card;
 import scraper.util.ScraperUtil;
 import scraper.util.shared.SharedResources;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class IsleOfCards {
 
@@ -13,15 +21,92 @@ public class IsleOfCards {
 
         //https://www.isleofcards.com/card_categories.json
         //Pull all set codes from above json file
+        List<MagicSet> sets = getSets();
 
         //https://www.isleofcards.com/products/typeahead_editor.json?data[search]=&data[has_buy_capacity]=1&data[set_code]=SOI&data[rarity]=&data[sort]=name-asc
         //make this query for each set code found in card_categories
+        for(MagicSet magicSet : sets) {
+            getCardsForSet(magicSet);
+
+
+
+            List<IsleCard> isleCards = null;
+
+
+
+        }
 
         String page = getPage("https://www.isleofcards.com/buylist");
         getCardsFromPage(page);
 
         ScraperUtil.log("IsleOfCards ending");
     }
+
+    private static void getCardsForSet(MagicSet magicSet) {
+
+        if (card.getName().length() > SharedResources.nameLength)
+            SharedResources.nameLength = card.getName().length();
+        if (card.getSet().length() > SharedResources.setLength)
+            SharedResources.setLength = card.getSet().length();
+
+        SharedResources.cards.add(card);
+    }
+
+    private static List<IsleCard> getCardJsonForSet(MagicSet magicSet) throws IOException {
+        List<IsleCard> isleCards = new ArrayList<>();
+        URLConnection urlConnection;
+        String urlStr = "https://www.isleofcards.com/products/typeahead_editor.json?data[search]=&data[has_buy_capacity]=1&data[set_code]=" + magicSet.getSetCode() + "&data[rarity]=&data[sort]=name-asc";
+        URL url = new URL(urlStr);
+        urlConnection = url.openConnection();
+
+        String json = "";
+
+        BufferedReader dis  = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+
+        String tmp;
+
+        while ((tmp = dis.readLine()) != null) {
+            json = json + tmp.trim();
+        }
+        dis.close();
+
+        isleCards = new Gson().fromJson(json, new TypeToken<List<IsleCard>>(){}.getType());
+        return isleCards;
+    }
+
+    private static List<MagicSet> getSets() throws IOException {
+        IsleOfCardsSetData data;
+        List<MagicSet> sets = new ArrayList<>();
+        URLConnection urlConnection;
+        URL url = new URL("https://www.isleofcards.com/card_categories.json");
+        urlConnection = url.openConnection();
+
+        String json = "";
+
+        BufferedReader dis  = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+
+        String tmp;
+
+        while ((tmp = dis.readLine()) != null) {
+            json = json + tmp.trim();
+        }
+        dis.close();
+        data = new Gson().fromJson(json, IsleOfCardsSetData.class);
+        for(Category category : data.getCategories()) {
+            for(Child child : category.getChildren()) {
+                sets.add(child.getSet());
+            }
+        }
+
+        return sets;
+    }
+
+
+
+
+
+
+
 
     private static void getCardsFromPage(String page) {
         int index = 0,
