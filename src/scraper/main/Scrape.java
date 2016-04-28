@@ -155,14 +155,16 @@ public class Scrape extends TimerTask {
 
 				ScraperUtil.log("Sorting Cards");
 
-
+				SharedResources.driver.quit();
 			} catch (IOException e) {
 				e.printStackTrace(SharedResources.logger);
+				SharedResources.driver.quit();
 			} catch (Exception e) {
 				ScraperUtil.log(e.getStackTrace());
 				e.printStackTrace(SharedResources.logger);
+				SharedResources.driver.quit();
 			}
-			SharedResources.driver.quit();
+			
 
 			Object cardsArray[] = SharedResources.cards.toArray();
 

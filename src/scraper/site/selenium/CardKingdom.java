@@ -25,6 +25,9 @@ public class CardKingdom {
             }
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            System.out.println(e.getCause());
         }
 
         page = getPage("http://www.cardkingdom.com/purchasing/mtg_singles?filter[category_id]=0&filter[name]=&filter[rarity]=&filter[foils]=yes");
