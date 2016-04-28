@@ -18,6 +18,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
+import scraper.site.StarCityGames.StarCityGames;
 import scraper.site.StrikeZone;
 import scraper.site.TrollAndToad;
 import scraper.site.selenium.*;
@@ -33,7 +34,7 @@ public class Scrape extends TimerTask {
 	DateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
 	Date date = new Date();
 	String eol = "<br>";// System.getProperty("line.separator");
-	String message = "Combined Price List" + eol;
+	String message = "TEST SCG Price List" + eol;
 	ArrayList<Card> cards = new ArrayList<Card>();
 
 	public void run() {
@@ -48,7 +49,7 @@ public class Scrape extends TimerTask {
 			SharedResources.begin = System.currentTimeMillis();
 			SharedResources.cards = new CopyOnWriteArrayList<Card>();
 			try {
-				try {
+				/*try {
 					ScraperUtil.log("StrikeZone Starting");
 					StrikeZone.getCards(); ScraperUtil.log("StrikeZone Done");
 				} catch (java.io.FileNotFoundException e) { 
@@ -68,13 +69,14 @@ public class Scrape extends TimerTask {
 					e.printStackTrace(SharedResources.logger);
 				}
 				ScraperUtil.calculateElapsedTime();
+				*/
 
 				ScraperUtil.log("Starting Browser"); 
 				SharedResources.driver = new FirefoxDriver();
 				ScraperUtil.log("Browser Open");
 				ScraperUtil.calculateElapsedTime();
 
-				try {
+				/*try {
 					ScraperUtil.log("Untapped Games Starting");
 					UntappedGames.getCards();
 					ScraperUtil.log("Untapped Games Done"); 
@@ -84,18 +86,6 @@ public class Scrape extends TimerTask {
 					e.printStackTrace(SharedResources.logger);
 				}
 				ScraperUtil.calculateElapsedTime();
-				
-
-				/*try {
-					ScraperUtil.log("BGs Starting");
-					BGs.getCards();
-					ScraperUtil.log("Bgs Done");
-				} catch (java.io.FileNotFoundException e) {
-					message = message + eol + "BGs appears to be down";
-					ScraperUtil.log("BGs Error");
-					e.printStackTrace(SharedResources.logger);
-				}
-				ScraperUtil.calculateElapsedTime();*/
 
 				
 				try {
@@ -120,7 +110,28 @@ public class Scrape extends TimerTask {
 					e.printStackTrace(SharedResources.logger); 
 				}
 				ScraperUtil.calculateElapsedTime(); 
-				
+
+
+				try {
+					ScraperUtil.log("CardKingdom Starting");
+					CardKingdom.getCards();
+					ScraperUtil.log("CardKingdom Done");
+				} catch (java.io.FileNotFoundException e) {
+					message = message + eol + "CardKingdom appears to be down";
+					ScraperUtil.log("CardKingdom Error");
+					e.printStackTrace(SharedResources.logger);
+				}*/
+
+				try {
+					ScraperUtil.log("SCG Starting");
+					StarCityGames.getCards();
+					ScraperUtil.log("SCG Done");
+				} catch (java.io.FileNotFoundException e) {
+					message = message + eol + "SCG appears to be down";
+					ScraperUtil.log("SCG Error");
+					e.printStackTrace(SharedResources.logger);
+				}
+
 				/* cards.addAll(GamingEtc.getCards()); /* try {
 				 * ScraperUtil.log("TJ Games Starting"); TJ.getCards();
 				 * ScraperUtil.log("TJ Games Done"); } catch
@@ -131,15 +142,16 @@ public class Scrape extends TimerTask {
 				 * ScraperUtil.calculateElapsedTime();
 				 */
 
-				try {
-					ScraperUtil.log("CardKingdom Starting");
-					CardKingdom.getCards();
-					ScraperUtil.log("CardKingdom Done");
+				/*try {
+					ScraperUtil.log("BGs Starting");
+					BGs.getCards();
+					ScraperUtil.log("Bgs Done");
 				} catch (java.io.FileNotFoundException e) {
-					message = message + eol + "CardKingdom appears to be down";
-					ScraperUtil.log("CardKingdom Error");
+					message = message + eol + "BGs appears to be down";
+					ScraperUtil.log("BGs Error");
 					e.printStackTrace(SharedResources.logger);
 				}
+				ScraperUtil.calculateElapsedTime();*/
 
 				ScraperUtil.log("Sorting Cards");
 
@@ -163,7 +175,7 @@ public class Scrape extends TimerTask {
 			Collections.sort(cards, new CardSetComparator());
 
 			sendEmail("Corey", "CoreyAFraser@gmail.com");
-			//sendEmail("Pat","patbrodericksnc@yahoo.com");
+			sendEmail("Pat","patbrodericksnc@yahoo.com");
 			ScraperUtil.calculateTotalElapsedTime();
 
 			SharedResources.logger.close();
@@ -206,7 +218,7 @@ public class Scrape extends TimerTask {
 
 		try {
 			path = "priceLists" + File.separator;
-			fileName = name + "-pricelist-" + dateFormat.format(date);
+			fileName = name + "-TEST-SCG-pricelist-" + dateFormat.format(date);
 			PrintWriter writer = new PrintWriter(path + fileName + ".html",
 					"UTF-8");
 			ScraperUtil.log("Writing Cards to File");

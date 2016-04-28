@@ -1,3 +1,5 @@
-logs/
-priceLists/
+/priceLists
+/logs
+/out
+/.idea
 *.class
