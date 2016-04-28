@@ -31,11 +31,11 @@ import scraper.util.shared.SharedResources;
 
 public class Scrape extends TimerTask {
 
-	DateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-	Date date = new Date();
-	String eol = "<br>";// System.getProperty("line.separator");
-	String message = "TEST SCG Price List" + eol;
-	ArrayList<Card> cards = new ArrayList<Card>();
+	private DateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+	private Date date = new Date();
+	private String eol = "<br>";
+	private String message = "Price List" + eol;
+	private ArrayList<Card> cards = new ArrayList<>();
 
 	public void run() {
 
@@ -47,9 +47,9 @@ public class Scrape extends TimerTask {
 
 			SharedResources.incrBegin = System.currentTimeMillis();
 			SharedResources.begin = System.currentTimeMillis();
-			SharedResources.cards = new CopyOnWriteArrayList<Card>();
+			SharedResources.cards = new CopyOnWriteArrayList<>();
 			try {
-				/*try {
+				try {
 					ScraperUtil.log("StrikeZone Starting");
 					StrikeZone.getCards(); ScraperUtil.log("StrikeZone Done");
 				} catch (java.io.FileNotFoundException e) { 
@@ -69,14 +69,14 @@ public class Scrape extends TimerTask {
 					e.printStackTrace(SharedResources.logger);
 				}
 				ScraperUtil.calculateElapsedTime();
-				*/
+
 
 				ScraperUtil.log("Starting Browser"); 
 				SharedResources.driver = new FirefoxDriver();
 				ScraperUtil.log("Browser Open");
 				ScraperUtil.calculateElapsedTime();
 
-				/*try {
+				try {
 					ScraperUtil.log("Untapped Games Starting");
 					UntappedGames.getCards();
 					ScraperUtil.log("Untapped Games Done"); 
@@ -120,7 +120,7 @@ public class Scrape extends TimerTask {
 					message = message + eol + "CardKingdom appears to be down";
 					ScraperUtil.log("CardKingdom Error");
 					e.printStackTrace(SharedResources.logger);
-				}*/
+				}
 
 				try {
 					ScraperUtil.log("SCG Starting");
@@ -179,15 +179,13 @@ public class Scrape extends TimerTask {
 			ScraperUtil.calculateTotalElapsedTime();
 
 			SharedResources.logger.close();
-		} catch (FileNotFoundException | UnsupportedEncodingException e) {
-			e.printStackTrace(SharedResources.logger);
 		} catch (Exception e) {
 			e.printStackTrace(SharedResources.logger);
 		}
 		SharedResources.logger.close();
 	}
 
-	public void zipFile(String path, String file) {
+	private void zipFile(String path, String file) {
 		byte[] buffer = new byte[1024];
 		try {
 			FileOutputStream fos = new FileOutputStream(path + file + ".zip");
@@ -211,14 +209,14 @@ public class Scrape extends TimerTask {
 		}
 	}
 
-	public void sendEmail(String name, String eMail) {
+	private void sendEmail(String name, String eMail) {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String path;
 		String fileName;
 
 		try {
 			path = "priceLists" + File.separator;
-			fileName = name + "-TEST-SCG-pricelist-" + dateFormat.format(date);
+			fileName = name + "-pricelist-" + dateFormat.format(date);
 			PrintWriter writer = new PrintWriter(path + fileName + ".html",
 					"UTF-8");
 			ScraperUtil.log("Writing Cards to File");
