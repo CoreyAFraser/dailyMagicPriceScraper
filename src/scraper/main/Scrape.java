@@ -178,6 +178,7 @@ public class Scrape extends TimerTask {
 
 			sendEmail("Corey", "CoreyAFraser@gmail.com");
 			sendEmail("Pat","patbrodericksnc@yahoo.com");
+			sendEmail("Kyle","ksouza-tech@outlook.com");
 			ScraperUtil.calculateTotalElapsedTime();
 
 			SharedResources.logger.close();
