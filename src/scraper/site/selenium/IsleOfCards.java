@@ -1,33 +1,54 @@
-package scraper.site.IsleOfCards;
+package scraper.site.selenium;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 import scraper.main.Card;
 import scraper.util.ScraperUtil;
 import scraper.util.shared.SharedResources;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.LinkedHashSet;
+import java.util.List;
 
 public class IsleOfCards {
 
     public static void getCards() throws IOException {
         ScraperUtil.log("Starting IsleOfCards");
 
+        SharedResources.driver.navigate().to("https://www.isleofcards.com/buylist");
+
+        List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return jQuery.find('li[data-reactid] a[data-reactid*=\"sets\"]')");
+        List<RemoteWebElement> allSetsLink = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return jQuery.find('button[data-reactid*=\"sets\"]')");
+        List<RemoteWebElement> allSortingLink = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return jQuery.find('button[data-reactid*=\"sorting\"]')");
+
+        List<RemoteWebElement> sortLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return jQuery.find('li[data-reactid] a[data-reactid*=\"name-asc\"]')");
+        allSortingLink.get(0).click();
+        sortLinks.get(0).click();
+
+        for(RemoteWebElement link : setLinks) {
+            allSetsLink.get(0).click();
+            link.click();
+
+        }
+
         //https://www.isleofcards.com/card_categories.json
-        //Pull all set codes from above json file
-
-        //https://www.isleofcards.com/products/typeahead_editor.json?data[search]=&data[has_buy_capacity]=1&data[set_code]=SOI&data[rarity]=&data[sort]=name-asc
-        //make this query for each set code found in card_categories
-
-        String page = getPage("https://www.isleofcards.com/buylist");
-        getCardsFromPage(page);
+        //Get all sets from this to translate set codes to set Names
 
         ScraperUtil.log("IsleOfCards ending");
     }
 
-    private static void getCardsFromPage(String page) {
+
+
+    private static void getCardsFromCurrentPage() throws Exception {
+
+        String page = SharedResources.driver.getPageSource();
+
         int index = 0,
                 beginIndex,
                 endIndex;
-        String foil = "";
         Card card = new Card();
 
         index = page.indexOf("<a0:tr bgcolor=", index + 1) + 1;
@@ -101,18 +122,10 @@ public class IsleOfCards {
                     SharedResources.setLength = card.getSet().length();
 
                 SharedResources.cards.add(card);
+                //ScraperUtil.log("Card: " + card.getName());
             }
 
             index = endIndex;
         }
     }
-
-    private static String getPage(String urlStr)  {
-        SharedResources.driver.navigate().to(urlStr);
-
-        String pageSource = SharedResources.driver.getPageSource();
-
-        return pageSource;
-    }
-
 }
