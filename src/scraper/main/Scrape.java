@@ -76,7 +76,7 @@ public class Scrape extends TimerTask {
 				ScraperUtil.log("Browser Open");
 				ScraperUtil.calculateElapsedTime();
 
-				try {
+				/*try {
 					ScraperUtil.log("IsleOfCards Starting");
 					IsleOfCards.getCards();
 					ScraperUtil.log("IsleOfCards Done");
@@ -84,7 +84,7 @@ public class Scrape extends TimerTask {
 					message = message + eol + "IsleOfCards appears to be down";
 					ScraperUtil.log("IsleOfCards Error");
 					e.printStackTrace(SharedResources.logger);
-				}
+				}*/
 
 				try {
 					ScraperUtil.log("Untapped Games Starting");

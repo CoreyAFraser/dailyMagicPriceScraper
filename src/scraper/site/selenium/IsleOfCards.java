@@ -113,7 +113,7 @@ public class IsleOfCards {
             card.setQuantity(quantity);
 
             card.setPldPrice(" ");
-            card.setFoil(foil);
+            //card.setFoil(foil);
 
             if (addAble) {
                 if (card.getName().length() > SharedResources.nameLength)
