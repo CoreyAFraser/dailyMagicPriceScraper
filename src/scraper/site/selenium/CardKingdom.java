@@ -25,6 +25,9 @@ public class CardKingdom {
             }
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            System.out.println(e.getCause());
         }
 
         page = getPage("http://www.cardkingdom.com/purchasing/mtg_singles?filter[category_id]=0&filter[name]=&filter[rarity]=&filter[foils]=yes");
@@ -93,19 +96,26 @@ public class CardKingdom {
             if (price.contains("Contact Us")) {
                 addAble = false;
             }
+            
+            index = endIndex;
 
             card.setMintPrice(price);
 
             beginIndex = page.indexOf("(Limit", endIndex);
             endIndex = page.indexOf(")", beginIndex);
-            String quantity = page.substring(beginIndex, endIndex).replace("Limit", "").replace("(", "").replace(")", "").trim();
-            if (quantity.contains("color:red")) {
-                int startIndex = quantity.indexOf(">") + 1;
-                startIndex = quantity.indexOf(">", startIndex) + 1;
-                int stopIndex = quantity.indexOf("<", startIndex);
-                quantity = quantity.substring(startIndex, stopIndex);
+            if(beginIndex != -1 && endIndex != -1) {
+            	String quantity = page.substring(beginIndex, endIndex).replace("Limit", "").replace("(", "").replace(")", "").trim();
+            
+	            if (quantity.contains("color:red")) {
+	                int startIndex = quantity.indexOf(">") + 1;
+	                startIndex = quantity.indexOf(">", startIndex) + 1;
+	                int stopIndex = quantity.indexOf("<", startIndex);
+	                quantity = quantity.substring(startIndex, stopIndex);
+	            }
+	            card.setQuantity(quantity);
+            } else {
+            	card.setQuantity("unknown");
             }
-            card.setQuantity(quantity);
 
             card.setPldPrice(" ");
             card.setFoil(foil);
@@ -120,7 +130,9 @@ public class CardKingdom {
                 //ScraperUtil.log("Card: " + card.getName());
             }
 
-            index = endIndex;
+            if(endIndex != -1) {
+            	index = endIndex;
+            }
         }
 
         return getNextUrl(page);

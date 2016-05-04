@@ -49,7 +49,7 @@ public class Scrape extends TimerTask {
 			SharedResources.begin = System.currentTimeMillis();
 			SharedResources.cards = new CopyOnWriteArrayList<>();
 			try {
-				/*try {
+				try {
 					ScraperUtil.log("StrikeZone Starting");
 					StrikeZone.getCards(); ScraperUtil.log("StrikeZone Done");
 				} catch (java.io.FileNotFoundException e) { 
@@ -68,7 +68,7 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("Troll and Toad Error");
 					e.printStackTrace(SharedResources.logger);
 				}
-				ScraperUtil.calculateElapsedTime();*/
+				ScraperUtil.calculateElapsedTime();
 
 
 				ScraperUtil.log("Starting Browser"); 
@@ -86,7 +86,7 @@ public class Scrape extends TimerTask {
 					e.printStackTrace(SharedResources.logger);
 				}
 
-				/*try {
+				try {
 					ScraperUtil.log("Untapped Games Starting");
 					UntappedGames.getCards();
 					ScraperUtil.log("Untapped Games Done"); 
@@ -167,14 +167,16 @@ public class Scrape extends TimerTask {
 
 				ScraperUtil.log("Sorting Cards");
 
-
+				SharedResources.driver.quit();
 			} catch (IOException e) {
 				e.printStackTrace(SharedResources.logger);
+				SharedResources.driver.quit();
 			} catch (Exception e) {
 				ScraperUtil.log(e.getStackTrace());
 				e.printStackTrace(SharedResources.logger);
+				SharedResources.driver.quit();
 			}
-			SharedResources.driver.quit();
+			
 
 			Object cardsArray[] = SharedResources.cards.toArray();
 
@@ -187,7 +189,9 @@ public class Scrape extends TimerTask {
 			Collections.sort(cards, new CardSetComparator());
 
 			sendEmail("Corey", "CoreyAFraser@gmail.com");
-			//sendEmail("Pat","patbrodericksnc@yahoo.com");
+			sendEmail("Pat","patbrodericksnc@yahoo.com");
+			sendEmail("Kyle","ksouza-tech@outlook.com");
+
 			ScraperUtil.calculateTotalElapsedTime();
 
 			SharedResources.logger.close();
