@@ -30,7 +30,7 @@ public class StrikeZone {
 			    	SharedResources.nameLength = card.getName().length();
 			    if(card.getSet().length() > SharedResources.setLength)
 			    	SharedResources.setLength = card.getSet().length();
-			    if(Double.parseDouble(card.getMintPrice().replace(",","")) != 0.0)
+			    if(card.getMintPrice() != 0.0)
 			    	SharedResources.cards.add(card);
 			}  
 			dis.close(); 
@@ -56,7 +56,7 @@ public class StrikeZone {
 			} else {
 				result.setFoil(attributes[2].trim());
 				result.setQuantity(attributes[3].trim());
-				result.setMintPrice(attributes[4].trim());
+				result.setMintPrice(attributes[4].replace(",","").trim());
 			}
 		}
 		return result;
