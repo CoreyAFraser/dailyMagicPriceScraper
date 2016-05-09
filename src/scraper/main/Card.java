@@ -3,13 +3,13 @@ package scraper.main;
 import scraper.util.shared.SharedResources;
 
 public class Card {
-	String set = "t";
-	String name = "t";
-	String foil = " ";
-	String mintPrice = "-1";
-	String pldPrice = "0";
-	String quantity = "-1";
-	String site = "t";
+	private String set = "t";
+	private String name = "t";
+	private String foil = " ";
+	private double mintPrice = -1.0;
+	private double pldPrice = 0.0;
+	private String quantity = "-1";
+	private String site = "t";
 	
 	public String getQuantity() {
 		return quantity;
@@ -19,20 +19,24 @@ public class Card {
 		this.quantity = quantity;
 	}
 
-	public String getMintPrice() {
+	public double getMintPrice() {
 		return mintPrice;
 	}
 
 	public void setMintPrice(String mintPrice) {
-		this.mintPrice = mintPrice.replace(",","").replace("View Details", "").trim();
+		try {
+			this.mintPrice = Double.parseDouble(mintPrice.replace(",", "").replace("View Details", "").trim());
+		} catch(Exception e) {}
 	}
 
-	public String getPldPrice() {
+	public double getPldPrice() {
 		return pldPrice;
 	}
 
 	public void setPldPrice(String pldPrice) {
-		this.pldPrice = pldPrice.replace(",","").replace("View Details", "").trim();
+		try {
+			this.pldPrice = Double.parseDouble(pldPrice.replace(",", "").replace("View Details", "").trim());
+		} catch (Exception e) {}
 	}
 	
 	
@@ -40,7 +44,7 @@ public class Card {
 		this.set = "";
 		this.name = "";
 		this.foil = "";
-		this.mintPrice = "0";
+		this.mintPrice = 0.0;
 	}
 
 	public Card(int type, String text) {
@@ -52,7 +56,7 @@ public class Card {
 				this.set = "";
 				this.name = "";
 				this.foil = "";
-				this.mintPrice = "0";
+				this.mintPrice = 0.0;
 				break;
 		}
 	}
@@ -169,7 +173,7 @@ public class Card {
             return true;
 
         Card card = (Card) obj;
-        if(set.equals(card.set) && name.equals(card.name) && foil.equals(card.foil) && mintPrice.equals(card.mintPrice) && pldPrice.equals(card.pldPrice) &&
+        if(set.equals(card.set) && name.equals(card.name) && foil.equals(card.foil) && (mintPrice == card.mintPrice) && (pldPrice == card.pldPrice) &&
         		quantity.equals(card.quantity) && site.equals(card.site)) {
         	return true;
         } else {

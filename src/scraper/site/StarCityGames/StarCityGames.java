@@ -41,6 +41,7 @@ public class StarCityGames {
                         }
                     }
                 }
+                //ScraperUtil.log("Set added: " + set + "  " + scgSearchDTO.getSetName());
             }
         } catch (Exception e) {
             e.printStackTrace();

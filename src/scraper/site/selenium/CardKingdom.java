@@ -113,6 +113,7 @@ public class CardKingdom {
 	                quantity = quantity.substring(startIndex, stopIndex);
 	            }
 	            card.setQuantity(quantity);
+                index = endIndex;
             } else {
             	card.setQuantity("unknown");
             }
@@ -129,10 +130,9 @@ public class CardKingdom {
                 SharedResources.cards.add(card);
                 //ScraperUtil.log("Card: " + card.getName());
             }
-
-            if(endIndex != -1) {
-            	index = endIndex;
-            }
+            //ScraperUtil.log("BeginIndex: " + beginIndex);
+            //ScraperUtil.log("EndIndex: " + endIndex);
+            //ScraperUtil.log("Index: " + index);
         }
 
         return getNextUrl(page);

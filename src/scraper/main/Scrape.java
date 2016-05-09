@@ -10,10 +10,8 @@ import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.TimerTask;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -23,9 +21,7 @@ import scraper.site.StrikeZone;
 import scraper.site.TrollAndToad;
 import scraper.site.selenium.*;
 import scraper.util.CardFoilComparator;
-import scraper.util.CardNameComparator;
-import scraper.util.CardPriceComparator;
-import scraper.util.CardSetComparator;
+
 import scraper.util.ScraperUtil;
 import scraper.util.shared.SharedResources;
 
@@ -35,7 +31,8 @@ public class Scrape extends TimerTask {
 	private Date date = new Date();
 	private String eol = "<br>";
 	private String message = "Price List" + eol;
-	private ArrayList<Card> cards = new ArrayList<>();
+
+	private CardFoilComparator cardFoilComparator = new CardFoilComparator();
 
 	public void run() {
 
@@ -47,7 +44,7 @@ public class Scrape extends TimerTask {
 
 			SharedResources.incrBegin = System.currentTimeMillis();
 			SharedResources.begin = System.currentTimeMillis();
-			SharedResources.cards = new CopyOnWriteArrayList<>();
+			SharedResources.cards = new ArrayList<>();
 			try {
 				try {
 					ScraperUtil.log("StrikeZone Starting");
@@ -57,6 +54,15 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("StrikeZone Error");
 					e.printStackTrace(SharedResources.logger); 
 				}
+
+				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
+				ScraperUtil.log("Cards sorted by price");
+				SharedResources.cards.sort(cardFoilComparator);
+				ScraperUtil.log("Cards sorted by Foil");
+				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
+				ScraperUtil.log("Cards sorted by name");
+				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
+				ScraperUtil.log("Cards sorted by set");
 				ScraperUtil.calculateElapsedTime();
 		 
 				try {
@@ -68,6 +74,15 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("Troll and Toad Error");
 					e.printStackTrace(SharedResources.logger);
 				}
+
+				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
+				ScraperUtil.log("Cards sorted by price");
+				SharedResources.cards.sort(cardFoilComparator);
+				ScraperUtil.log("Cards sorted by Foil");
+				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
+				ScraperUtil.log("Cards sorted by name");
+				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
+				ScraperUtil.log("Cards sorted by set");
 				ScraperUtil.calculateElapsedTime();
 
 
@@ -84,7 +99,17 @@ public class Scrape extends TimerTask {
 					message = message + eol + "IsleOfCards appears to be down";
 					ScraperUtil.log("IsleOfCards Error");
 					e.printStackTrace(SharedResources.logger);
-				}*/
+				}
+
+				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
+				ScraperUtil.log("Cards sorted by price");
+				SharedResources.cards.sort(cardFoilComparator);
+				ScraperUtil.log("Cards sorted by Foil");
+				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
+				ScraperUtil.log("Cards sorted by name");
+				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
+				ScraperUtil.log("Cards sorted by set");
+				ScraperUtil.calculateElapsedTime();*/
 
 				try {
 					ScraperUtil.log("Untapped Games Starting");
@@ -95,7 +120,22 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("Untapped Games Error");
 					e.printStackTrace(SharedResources.logger);
 				}
-				ScraperUtil.calculateElapsedTime();
+
+				try {
+					SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
+					ScraperUtil.log("Cards sorted by price");
+					SharedResources.cards.sort(cardFoilComparator);
+					ScraperUtil.log("Cards sorted by Foil");
+					SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
+					ScraperUtil.log("Cards sorted by name");
+					SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
+					ScraperUtil.log("Cards sorted by set");
+					ScraperUtil.calculateElapsedTime();
+				} catch (Exception e) {
+					System.out.println(e.getStackTrace());
+					System.out.println(e.getCause());
+					e.printStackTrace();
+				}
 
 				
 				try {
@@ -107,10 +147,19 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("ABU Error");
 					e.printStackTrace(SharedResources.logger);
 				}
+
+				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
+				ScraperUtil.log("Cards sorted by price");
+				SharedResources.cards.sort(cardFoilComparator);
+				ScraperUtil.log("Cards sorted by Foil");
+				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
+				ScraperUtil.log("Cards sorted by name");
+				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
+				ScraperUtil.log("Cards sorted by set");
 				ScraperUtil.calculateElapsedTime();
 				  
 				  
-				try { 
+				try {
 					ScraperUtil.log("Channel Fireball Starting");
 					ChannelFireball.getCards();
 					ScraperUtil.log("Channel Fireball Done"); 
@@ -119,7 +168,16 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("Channel Fireball Error");
 					e.printStackTrace(SharedResources.logger); 
 				}
-				ScraperUtil.calculateElapsedTime(); 
+
+				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
+				ScraperUtil.log("Cards sorted by price");
+				SharedResources.cards.sort(cardFoilComparator);
+				ScraperUtil.log("Cards sorted by Foil");
+				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
+				ScraperUtil.log("Cards sorted by name");
+				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
+				ScraperUtil.log("Cards sorted by set");
+				ScraperUtil.calculateElapsedTime();
 
 
 				try {
@@ -132,6 +190,16 @@ public class Scrape extends TimerTask {
 					e.printStackTrace(SharedResources.logger);
 				}
 
+				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
+				ScraperUtil.log("Cards sorted by price");
+				SharedResources.cards.sort(cardFoilComparator);
+				ScraperUtil.log("Cards sorted by Foil");
+				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
+				ScraperUtil.log("Cards sorted by name");
+				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
+				ScraperUtil.log("Cards sorted by set");
+				ScraperUtil.calculateElapsedTime();
+
 				try {
 					ScraperUtil.log("SCG Starting");
 					StarCityGames.getCards();
@@ -142,6 +210,15 @@ public class Scrape extends TimerTask {
 					e.printStackTrace(SharedResources.logger);
 				}
 
+				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
+				ScraperUtil.log("Cards sorted by price");
+				SharedResources.cards.sort(cardFoilComparator);
+				ScraperUtil.log("Cards sorted by Foil");
+				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
+				ScraperUtil.log("Cards sorted by name");
+				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
+				ScraperUtil.log("Cards sorted by set");
+				ScraperUtil.calculateElapsedTime();
 
 
 				/* cards.addAll(GamingEtc.getCards()); /* try {
@@ -170,23 +247,26 @@ public class Scrape extends TimerTask {
 				SharedResources.driver.quit();
 			} catch (IOException e) {
 				e.printStackTrace(SharedResources.logger);
+				ScraperUtil.log("IOException");
 				SharedResources.driver.quit();
 			} catch (Exception e) {
 				ScraperUtil.log(e.getStackTrace());
 				e.printStackTrace(SharedResources.logger);
+				ScraperUtil.log("Exception");
 				SharedResources.driver.quit();
 			}
-			
 
-			Object cardsArray[] = SharedResources.cards.toArray();
+            ScraperUtil.log("Cards added: " + SharedResources.cards.size());
 
-			for (Object card : cardsArray) {
-				cards.add((Card) card);
-			}
-			Collections.sort(cards, new CardPriceComparator());
-			Collections.sort(cards, new CardFoilComparator());
-			Collections.sort(cards, new CardNameComparator());
-			Collections.sort(cards, new CardSetComparator());
+			SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
+			ScraperUtil.log("Cards sorted by price");
+			SharedResources.cards.sort(cardFoilComparator);
+			ScraperUtil.log("Cards sorted by Foil");
+			SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
+			ScraperUtil.log("Cards sorted by name");
+			SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
+			ScraperUtil.log("Cards sorted by set");
+			ScraperUtil.calculateElapsedTime();
 
 			sendEmail("Corey", "CoreyAFraser@gmail.com");
 			sendEmail("Pat","patbrodericksnc@yahoo.com");
@@ -238,7 +318,7 @@ public class Scrape extends TimerTask {
 			ScraperUtil.log("Writing Cards to File");
 			writer.println("<html>\r\n<head>\r\n<title>\r\nMTG List - Buylist Report\r\n</title>\r\n</head>\r\n<body>\r\n<table>");
 			int count = 1;
-			for (Card card : cards) {
+			for (Card card : SharedResources.cards) {
 				writer.println(card.toStringForFile(count));
 				count++;
 				writer.flush();
