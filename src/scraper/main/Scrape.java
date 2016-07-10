@@ -85,6 +85,27 @@ public class Scrape extends TimerTask {
 				ScraperUtil.log("Cards sorted by set");
 				ScraperUtil.calculateElapsedTime();
 
+				
+				try {
+					ScraperUtil.log("SCG Starting");
+					StarCityGames.getCards();
+					ScraperUtil.log("SCG Done");
+				} catch (java.io.FileNotFoundException e) {
+					message = message + eol + "SCG appears to be down";
+					ScraperUtil.log("SCG Error");
+					e.printStackTrace(SharedResources.logger);
+				}
+
+				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
+				ScraperUtil.log("Cards sorted by price");
+				SharedResources.cards.sort(cardFoilComparator);
+				ScraperUtil.log("Cards sorted by Foil");
+				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
+				ScraperUtil.log("Cards sorted by name");
+				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
+				ScraperUtil.log("Cards sorted by set");
+				ScraperUtil.calculateElapsedTime();
+
 
 				ScraperUtil.log("Starting Browser"); 
 				SharedResources.driver = new FirefoxDriver();
@@ -180,45 +201,27 @@ public class Scrape extends TimerTask {
 				ScraperUtil.calculateElapsedTime();
 
 
-				try {
-					ScraperUtil.log("CardKingdom Starting");
-					CardKingdom.getCards();
-					ScraperUtil.log("CardKingdom Done");
-				} catch (java.io.FileNotFoundException e) {
-					message = message + eol + "CardKingdom appears to be down";
-					ScraperUtil.log("CardKingdom Error");
-					e.printStackTrace(SharedResources.logger);
-				}
+//				try {
+//					ScraperUtil.log("CardKingdom Starting");
+//					CardKingdom.getCards();
+//					ScraperUtil.log("CardKingdom Done");
+//				} catch (java.io.FileNotFoundException e) {
+//					message = message + eol + "CardKingdom appears to be down";
+//					ScraperUtil.log("CardKingdom Error");
+//					e.printStackTrace(SharedResources.logger);
+//				}
+//
+//				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
+//				ScraperUtil.log("Cards sorted by price");
+//				SharedResources.cards.sort(cardFoilComparator);
+//				ScraperUtil.log("Cards sorted by Foil");
+//				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
+//				ScraperUtil.log("Cards sorted by name");
+//				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
+//				ScraperUtil.log("Cards sorted by set");
+//				ScraperUtil.calculateElapsedTime();
 
-				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
-				ScraperUtil.log("Cards sorted by price");
-				SharedResources.cards.sort(cardFoilComparator);
-				ScraperUtil.log("Cards sorted by Foil");
-				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
-				ScraperUtil.log("Cards sorted by name");
-				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
-				ScraperUtil.log("Cards sorted by set");
-				ScraperUtil.calculateElapsedTime();
 
-				try {
-					ScraperUtil.log("SCG Starting");
-					StarCityGames.getCards();
-					ScraperUtil.log("SCG Done");
-				} catch (java.io.FileNotFoundException e) {
-					message = message + eol + "SCG appears to be down";
-					ScraperUtil.log("SCG Error");
-					e.printStackTrace(SharedResources.logger);
-				}
-
-				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
-				ScraperUtil.log("Cards sorted by price");
-				SharedResources.cards.sort(cardFoilComparator);
-				ScraperUtil.log("Cards sorted by Foil");
-				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
-				ScraperUtil.log("Cards sorted by name");
-				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
-				ScraperUtil.log("Cards sorted by set");
-				ScraperUtil.calculateElapsedTime();
 
 
 				/* cards.addAll(GamingEtc.getCards()); /* try {
