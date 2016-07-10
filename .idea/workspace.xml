@@ -2,13 +2,68 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60b1a9fe-1105-460c-8402-10d69d9203ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/seleniumpricescraper.xml" afterPath="$PROJECT_DIR$/.idea/libraries/seleniumpricescraper.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ie/moguntia/threads/ControllableThread.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ie/moguntia/threads/MessageReceiver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ie/moguntia/threads/ObjectQueue.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ie/moguntia/threads/Queue.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ie/moguntia/threads/ThreadController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ie/moguntia/webcrawler/PSucker.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ie/moguntia/webcrawler/PSuckerThread.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ie/moguntia/webcrawler/SaveURL.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ie/moguntia/webcrawler/URLQueue.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ie/moguntia/webcrawler/WSDLCrawler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ie/moguntia/webcrawler/WSDLCrawlerThread.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-12.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-13.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-14.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-15.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-17.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-18.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-19.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-20.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-21.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-22.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-23.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-24.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-25.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-27.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-28.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-29.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-30.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-31.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-05-31.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-06-02.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-06-02.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-06-03.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-06-03.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-06-06.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Corey-2015-06-06.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-12.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-13.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-14.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-15.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-17.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-18.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-19.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-20.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-21.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-22.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-23.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-24.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-25.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-27.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-28.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-29.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-30.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-31.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-05-31.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-06-03.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-06-03.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-06-06.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/priceLists/priceList-Pat-2015-06-06.zip" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/seleniumpricescraper/.classpath" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/libraries/seleniumpricescraper.xml" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/libraries/seleniumpricescraper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scraper/main/PriceScraper.java" afterPath="$PROJECT_DIR$/src/scraper/main/PriceScraper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scraper/main/Scrape.java" afterPath="$PROJECT_DIR$/src/scraper/main/Scrape.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scraper/site/StarCityGames/StarCityGames.java" afterPath="$PROJECT_DIR$/src/scraper/site/StarCityGames/StarCityGames.java" />
     </list>
     <ignored path="seleniumpricescraper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +84,18 @@
     <favorites_list name="seleniumpricescraper" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Scrape.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/scraper/main/Scrape.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2373">
+              <caret line="159" column="16" selection-start-line="159" selection-start-column="16" selection-end-line="159" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -109,7 +175,7 @@
     <property name="project.structure.side.proportion" value="0.1367816" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="Card.java&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Card.java" />
+    <property name="SearchEverywhereHistoryKey" value="Scrape&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Scrape.java&#10;Card.java&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Card.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -232,7 +298,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1215" height="776" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3104027" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -241,7 +307,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6303681" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2285276" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329698" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50686496" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -631,14 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scraper/main/Scrape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="129" column="36" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scraper/site/selenium/CardKingdom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -651,6 +709,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scraper/main/Scrape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2373">
+          <caret line="159" column="16" selection-start-line="159" selection-start-column="16" selection-end-line="159" selection-end-column="16" />
           <folding />
         </state>
       </provider>

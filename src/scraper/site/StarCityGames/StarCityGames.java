@@ -25,23 +25,14 @@ public class StarCityGames {
         //pull json for each set here
 
         try {
-            LinkedHashSet<String> sets = getAllSets();
+            //LinkedHashSet<String> sets = getAllSets();
 
-            for(String set : sets) {
-                SCGSearchDTO scgSearchDTO = getCardsForSet(set);
-                for(List<SCGCard> scgCards : scgSearchDTO.getResults()) {
-                    for(SCGCard scgCard : scgCards) {
-                        if(scgCard.isAddable()) {
-                            Card card = scgCard.toCardWithSet(scgSearchDTO.getSetName());
-                            if (card.getName().length() > SharedResources.nameLength)
-                                SharedResources.nameLength = card.getName().length();
-                            if (card.getSet().length() > SharedResources.setLength)
-                                SharedResources.setLength = card.getSet().length();
-                            SharedResources.cards.add(card);
-                        }
-                    }
-                }
-                //ScraperUtil.log("Set added: " + set + "  " + scgSearchDTO.getSetName());
+            for(int i=1000;i<2000;i++) {
+                processSetId(i);
+            }
+
+            for(int i=5000;i<6000;i++) {
+                processSetId(i);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -50,10 +41,29 @@ public class StarCityGames {
         ScraperUtil.log("SCG ending");
     }
 
-    private static SCGSearchDTO getCardsForSet(String set) {
+    private static void processSetId(int setId) {
+        SCGSearchDTO scgSearchDTO = getCardsForSet(setId);
+        ScraperUtil.log(scgSearchDTO.getResults().size() + " cards for set Id: " + setId);
+        if(scgSearchDTO.getResults().size() > 0) {
+            for (List<SCGCard> scgCards : scgSearchDTO.getResults()) {
+                for (SCGCard scgCard : scgCards) {
+                    if (scgCard.isAddable()) {
+                        Card card = scgCard.toCardWithSet(scgSearchDTO.getSetName());
+                        if (card.getName().length() > SharedResources.nameLength)
+                            SharedResources.nameLength = card.getName().length();
+                        if (card.getSet().length() > SharedResources.setLength)
+                            SharedResources.setLength = card.getSet().length();
+                        SharedResources.cards.add(card);
+                    }
+                }
+            }
+        }
+    }
+
+    private static SCGSearchDTO getCardsForSet(int setId) {
         try {
             String USER_AGENT = "Mozilla/5.0";
-            String url = "http://www.starcitygames.com/buylist/search?search-type=category&id=" + set;
+            String url = "http://www.starcitygames.com/buylist/search?search-type=category&id=" + setId;
 
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -61,7 +71,6 @@ public class StarCityGames {
             con.setRequestMethod("GET");
 
             con.setRequestProperty("User-Agent", USER_AGENT);
-
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
             String inputLine;
