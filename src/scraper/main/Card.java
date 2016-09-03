@@ -111,6 +111,11 @@ public class Card {
 		if(set.contains("Deck") && !set.contains("Commander") && !set.contains("Packs") && !set.contains("masters")) {
 			set = set.replace("Decks","").replace("Deck", "").replace("Series", "").trim();
 		}
+
+		String tempSet = set.toLowerCase();
+		if(tempSet.contains("promo")) {
+			set = "promos";
+		}
 		
 		if(set.equalsIgnoreCase("futuresight"))
 			set = "Future Sight";

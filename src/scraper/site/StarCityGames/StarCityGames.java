@@ -43,7 +43,7 @@ public class StarCityGames {
 
     private static void processSetId(int setId) {
         SCGSearchDTO scgSearchDTO = getCardsForSet(setId);
-        ScraperUtil.log(scgSearchDTO.getResults().size() + " cards for set Id: " + setId);
+        //ScraperUtil.log(scgSearchDTO.getResults().size() + " cards for set Id: " + setId);
         if(scgSearchDTO.getResults().size() > 0) {
             for (List<SCGCard> scgCards : scgSearchDTO.getResults()) {
                 for (SCGCard scgCard : scgCards) {

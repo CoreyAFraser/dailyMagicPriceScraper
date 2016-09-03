@@ -28,7 +28,6 @@ import scraper.util.shared.SharedResources;
 public class Scrape extends TimerTask {
 
 	private DateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-	private Date date = new Date();
 	private String eol = "<br>";
 	private String message = "Price List" + eol;
 
@@ -37,6 +36,7 @@ public class Scrape extends TimerTask {
 	public void run() {
 
 		try {
+			Date date = new Date();
 			SharedResources.logger = new PrintWriter("logs/"
 					+ dateTimeFormat.format(date) + "_log.txt", "UTF-8");
 
@@ -49,10 +49,10 @@ public class Scrape extends TimerTask {
 				try {
 					ScraperUtil.log("StrikeZone Starting");
 					StrikeZone.getCards(); ScraperUtil.log("StrikeZone Done");
-				} catch (java.io.FileNotFoundException e) { 
+				} catch (java.io.FileNotFoundException e) {
 					message = message + "\r\nStrikeZone appears to be down";
 					ScraperUtil.log("StrikeZone Error");
-					e.printStackTrace(SharedResources.logger); 
+					e.printStackTrace(SharedResources.logger);
 				}
 
 				sortCards();
@@ -61,7 +61,7 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("Troll and Toad Starting");
 					TrollAndToad.getCards();
 					ScraperUtil.log("Troll and Toad Done");
-				} catch(java.io.FileNotFoundException e) { 
+				} catch(java.io.FileNotFoundException e) {
 					message = message + eol + "Troll and Toad appears to be down";
 					ScraperUtil.log("Troll and Toad Error");
 					e.printStackTrace(SharedResources.logger);
@@ -102,8 +102,8 @@ public class Scrape extends TimerTask {
 				try {
 					ScraperUtil.log("Untapped Games Starting");
 					UntappedGames.getCards();
-					ScraperUtil.log("Untapped Games Done"); 
-				} catch (java.io.FileNotFoundException e) { 
+					ScraperUtil.log("Untapped Games Done");
+				} catch (java.io.FileNotFoundException e) {
 					message = message + eol + "Untapped Games appears to be down";
 					ScraperUtil.log("Untapped Games Error");
 					e.printStackTrace(SharedResources.logger);
@@ -122,16 +122,16 @@ public class Scrape extends TimerTask {
 				}
 
 				sortCards();
-				  
-				  
+
+
 				try {
 					ScraperUtil.log("Channel Fireball Starting");
 					ChannelFireball.getCards();
-					ScraperUtil.log("Channel Fireball Done"); 
-				} catch (java.io.FileNotFoundException e) { 
+					ScraperUtil.log("Channel Fireball Done");
+				} catch (java.io.FileNotFoundException e) {
 					message = message + eol + "Channel Fireball appears to be down";
 					ScraperUtil.log("Channel Fireball Error");
-					e.printStackTrace(SharedResources.logger); 
+					e.printStackTrace(SharedResources.logger);
 				}
 
 				sortCards();
@@ -157,7 +157,7 @@ public class Scrape extends TimerTask {
 //				ScraperUtil.log("Cards sorted by set");
 //				ScraperUtil.calculateElapsedTime();
 
-				
+
 				/* cards.addAll(GamingEtc.getCards()); /* try {
 				 * ScraperUtil.log("TJ Games Starting"); TJ.getCards();
 				 * ScraperUtil.log("TJ Games Done"); } catch
@@ -258,6 +258,7 @@ public class Scrape extends TimerTask {
 
 		try {
 			path = "priceLists" + File.separator;
+            Date date = new Date();
 			fileName = name + "-pricelist-" + dateFormat.format(date);
 			PrintWriter writer = new PrintWriter(path + fileName + ".html",
 					"UTF-8");
