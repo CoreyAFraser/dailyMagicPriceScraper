@@ -1,12 +1,17 @@
 package scraper.main;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import scraper.site.StarCityGames.StarCityGames;
+import scraper.site.StrikeZone;
+import scraper.site.TrollAndToad;
+import scraper.site.selenium.ABUGames;
+import scraper.site.selenium.ChannelFireball;
+import scraper.site.selenium.UntappedGames;
+import scraper.util.CardFoilComparator;
+import scraper.util.ScraperUtil;
+import scraper.util.shared.SharedResources;
+
+import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,16 +19,6 @@ import java.util.Date;
 import java.util.TimerTask;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-
-import org.openqa.selenium.firefox.FirefoxDriver;
-import scraper.site.StarCityGames.StarCityGames;
-import scraper.site.StrikeZone;
-import scraper.site.TrollAndToad;
-import scraper.site.selenium.*;
-import scraper.util.CardFoilComparator;
-
-import scraper.util.ScraperUtil;
-import scraper.util.shared.SharedResources;
 
 public class Scrape extends TimerTask {
 
@@ -37,7 +32,7 @@ public class Scrape extends TimerTask {
 
 		try {
 			Date date = new Date();
-			SharedResources.logger = new PrintWriter("logs/"
+			SharedResources.logger = new PrintWriter("logs" + File.separator
 					+ dateTimeFormat.format(date) + "_log.txt", "UTF-8");
 
 			ScraperUtil.log("Started Successfully");
@@ -54,9 +49,8 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("StrikeZone Error");
 					e.printStackTrace(SharedResources.logger);
 				}
-
 				sortCards();
-		 
+
 				try {
 					ScraperUtil.log("Troll and Toad Starting");
 					TrollAndToad.getCards();
@@ -66,10 +60,9 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("Troll and Toad Error");
 					e.printStackTrace(SharedResources.logger);
 				}
-
 				sortCards();
 
-				
+
 				try {
 					ScraperUtil.log("SCG Starting");
 					StarCityGames.getCards();
@@ -79,25 +72,12 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("SCG Error");
 					e.printStackTrace(SharedResources.logger);
 				}
-
 				sortCards();
 
 				ScraperUtil.log("Starting Browser");
 				SharedResources.driver = new FirefoxDriver();
 				ScraperUtil.log("Browser Open");
 				ScraperUtil.calculateElapsedTime();
-
-				/*try {
-					ScraperUtil.log("IsleOfCards Starting");
-					IsleOfCards.getCards();
-					ScraperUtil.log("IsleOfCards Done");
-				} catch (java.io.FileNotFoundException e) {
-					message = message + eol + "IsleOfCards appears to be down";
-					ScraperUtil.log("IsleOfCards Error");
-					e.printStackTrace(SharedResources.logger);
-				}
-
-				sortCards();*/
 
 				try {
 					ScraperUtil.log("Untapped Games Starting");
@@ -108,7 +88,6 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("Untapped Games Error");
 					e.printStackTrace(SharedResources.logger);
 				}
-
 				sortCards();
 
 				try {
@@ -120,9 +99,7 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("ABU Error");
 					e.printStackTrace(SharedResources.logger);
 				}
-
 				sortCards();
-
 
 				try {
 					ScraperUtil.log("Channel Fireball Starting");
@@ -133,29 +110,31 @@ public class Scrape extends TimerTask {
 					ScraperUtil.log("Channel Fireball Error");
 					e.printStackTrace(SharedResources.logger);
 				}
-
 				sortCards();
 
+				ScraperUtil.log("Sorting Cards");
 
-//				try {
-//					ScraperUtil.log("CardKingdom Starting");
-//					CardKingdom.getCards();
-//					ScraperUtil.log("CardKingdom Done");
-//				} catch (java.io.FileNotFoundException e) {
-//					message = message + eol + "CardKingdom appears to be down";
-//					ScraperUtil.log("CardKingdom Error");
-//					e.printStackTrace(SharedResources.logger);
-//				}
-//
-//				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
-//				ScraperUtil.log("Cards sorted by price");
-//				SharedResources.cards.sort(cardFoilComparator);
-//				ScraperUtil.log("Cards sorted by Foil");
-//				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
-//				ScraperUtil.log("Cards sorted by name");
-//				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
-//				ScraperUtil.log("Cards sorted by set");
-//				ScraperUtil.calculateElapsedTime();
+				SharedResources.driver.quit();
+
+                /*try {
+					ScraperUtil.log("CardKingdom Starting");
+					CardKingdom.getCards();
+					ScraperUtil.log("CardKingdom Done");
+				} catch (java.io.FileNotFoundException e) {
+					message = message + eol + "CardKingdom appears to be down";
+					ScraperUtil.log("CardKingdom Error");
+					e.printStackTrace(SharedResources.logger);
+				}
+
+				SharedResources.cards.sort((one, two) -> Double.compare(one.getMintPrice(),two.getMintPrice()));
+				ScraperUtil.log("Cards sorted by price");
+				SharedResources.cards.sort(cardFoilComparator);
+				ScraperUtil.log("Cards sorted by Foil");
+				SharedResources.cards.sort((one, two) -> one.getName().compareTo(two.getName()));
+				ScraperUtil.log("Cards sorted by name");
+				SharedResources.cards.sort((one, two) -> one.getSet().compareTo(two.getSet()));
+				ScraperUtil.log("Cards sorted by set");
+				ScraperUtil.calculateElapsedTime();*/
 
 
 				/* cards.addAll(GamingEtc.getCards()); /* try {
@@ -179,9 +158,20 @@ public class Scrape extends TimerTask {
 				}
 				ScraperUtil.calculateElapsedTime();*/
 
-				ScraperUtil.log("Sorting Cards");
+				/*try {
+					ScraperUtil.log("IsleOfCards Starting");
+					IsleOfCards.getCards();
+					ScraperUtil.log("IsleOfCards Done");
+				} catch (java.io.FileNotFoundException e) {
+					message = message + eol + "IsleOfCards appears to be down";
+					ScraperUtil.log("IsleOfCards Error");
+					e.printStackTrace(SharedResources.logger);
+				}
 
-				SharedResources.driver.quit();
+				sortCards();*/
+
+
+
 			} catch (IOException e) {
 				e.printStackTrace(SharedResources.logger);
 				ScraperUtil.log("IOException");
