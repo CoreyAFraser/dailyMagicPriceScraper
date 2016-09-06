@@ -64,6 +64,7 @@ public class StarCityGames {
         try {
             String USER_AGENT = "Mozilla/5.0";
             String url = "http://www.starcitygames.com/buylist/search?search-type=category&id=" + setId;
+            System.out.println(url);
 
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
