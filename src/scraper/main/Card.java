@@ -105,9 +105,10 @@ public class Card {
 	public String getSet() {
 		return set;
 	}
+
 	public void setSet(String set) {
 		set = set.replace(":","");
-		
+
 		if(set.contains("Deck") && !set.contains("Commander") && !set.contains("Packs") && !set.contains("masters")) {
 			set = set.replace("Decks","").replace("Deck", "").replace("Series", "").trim();
 		}
@@ -116,8 +117,12 @@ public class Card {
 		if(tempSet.contains("promo")) {
 			set = "promos";
 		}
-		
-		if(set.equalsIgnoreCase("futuresight"))
+
+        if (tempSet.contains("zendikar") && tempSet.contains("expeditions")) {
+            set = "zendikar expeditions";
+        }
+
+        if(set.equalsIgnoreCase("futuresight"))
 			set = "Future Sight";
 		else
 			if(set.equalsIgnoreCase("Portal 3 Kingdoms"))
@@ -141,9 +146,9 @@ public class Card {
 		
 		if(set.contains("Revised") || set.contains("3rd"))
 			set = "Revised";
-						
 
-		this.set = set.replace("M10","").replace("M11","").replace("M12","").replace("M13","").replace("M14","")
+
+        this.set = set.replace("M10","").replace("M11","").replace("M12","").replace("M13","").replace("M14","")
 						.replace("M15","").replace("(","").replace(")","").replace("/", "")
 						.replace("Core Set","").replace("Edition", "").replace("Gift Boxes:", "")
 						.replace("Deck Series: ", "").replace("Promo Cards", "Promos")
@@ -152,8 +157,9 @@ public class Card {
 						.replace("Classic","").replace("Re-Release", "Theme Deck Reprints")
 						.replace("\\","").replace("Collector's ", "CE").replace("Colectors'", "CE").replace("MTG","")
 						.replace("Premium", "Duel Decks:").replace("PDS", "Duel Decks:").replace("City of Guilds","")
-						.replace("\\s+", " ").replace("&", "and").replace("Gift Boxes","").trim().toLowerCase();
-	}
+                .replace("\\s+", " ").replace("&", "and").replace("Gift Boxes", "").toLowerCase().replace("foil", "")
+                .replace("singles", "").trim();
+    }
 	public String getName() {
 		return name;
 	}
