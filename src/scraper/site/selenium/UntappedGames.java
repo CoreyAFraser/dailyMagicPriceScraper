@@ -1,16 +1,15 @@
 package scraper.site.selenium;
 
-import java.net.MalformedURLException;
-import java.util.LinkedHashSet;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebElement;
-
 import scraper.main.Card;
 import scraper.util.ScraperUtil;
 import scraper.util.shared.SharedResources;
+
+import java.net.MalformedURLException;
+import java.util.LinkedHashSet;
+import java.util.List;
 
 public class UntappedGames {
 	
@@ -95,13 +94,13 @@ public class UntappedGames {
 						//ScraperUtil.log(card.toString(SharedResources.nameLength,SharedResources.setLength));
 					} catch(java.lang.NumberFormatException e) {
 						ScraperUtil.log("Blank price for " + card.getName());
-						e.printStackTrace(SharedResources.logger);
-					}
+                        ScraperUtil.log(e.getStackTrace());
+                    }
 				}
 			} catch(java.lang.ArrayIndexOutOfBoundsException e) {
 				ScraperUtil.log(cardElements.length);
-				e.printStackTrace(SharedResources.logger);
-			} 
+                ScraperUtil.log(e.getStackTrace());
+            }
 			
 		}
 	}

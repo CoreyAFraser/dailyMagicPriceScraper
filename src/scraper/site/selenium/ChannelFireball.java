@@ -76,7 +76,7 @@ public class ChannelFireball {
                     ScraperUtil.log("  Prices: " + prices.length);
                     ScraperUtil.log("  Names: " + cardNames.length);
                     ScraperUtil.log("  Quantities: " + qtys.length);
-                    e.printStackTrace(SharedResources.logger);
+                    ScraperUtil.log(e.getStackTrace());
                 }
 
                 List<RemoteWebElement> nextPageLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return jQuery.find('.next_page')");
@@ -92,9 +92,7 @@ public class ChannelFireball {
                 pagesRemaining = false;
             } catch (Exception e) {
                 ScraperUtil.log(e);
-                for (StackTraceElement element : e.getStackTrace()) {
-                    ScraperUtil.log("     " + element);
-                }
+                ScraperUtil.log(e.getStackTrace());
             }
         }
 	}

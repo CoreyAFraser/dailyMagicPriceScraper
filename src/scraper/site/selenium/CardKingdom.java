@@ -1,10 +1,10 @@
 package scraper.site.selenium;
 
-import java.io.IOException;
-
 import scraper.main.Card;
 import scraper.util.ScraperUtil;
 import scraper.util.shared.SharedResources;
+
+import java.io.IOException;
 
 public class CardKingdom {
 
@@ -24,12 +24,9 @@ public class CardKingdom {
                 }
             }
         } catch (Exception e) {
-            for(StackTraceElement element : e.getStackTrace()) {
-                System.out.println(element);
-            }
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-            System.out.println(e.getCause());
+            ScraperUtil.log(e.getStackTrace());
+            ScraperUtil.log(e.getMessage());
+            ScraperUtil.log(e.getCause());
         }
 
         page = getPage("http://www.cardkingdom.com/purchasing/mtg_singles?filter[category_id]=0&filter[name]=&filter[rarity]=&filter[foils]=yes");

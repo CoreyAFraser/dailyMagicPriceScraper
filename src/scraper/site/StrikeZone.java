@@ -1,13 +1,14 @@
 package scraper.site;
+
+import scraper.main.Card;
+import scraper.util.ScraperUtil;
+import scraper.util.shared.SharedResources;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-
-import scraper.main.Card;
-import scraper.util.ScraperUtil;
-import scraper.util.shared.SharedResources;
 
 public class StrikeZone {
 	
@@ -37,7 +38,7 @@ public class StrikeZone {
 			
 		} catch (java.net.UnknownHostException e) {
 			ScraperUtil.log("Strike Zone is offline");
-			e.printStackTrace(SharedResources.logger);
+			ScraperUtil.log(e.getStackTrace());
 		}
 
 	}

@@ -1,16 +1,15 @@
 package scraper.site.selenium;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.remote.RemoteWebElement;
+import scraper.main.Card;
+import scraper.util.ScraperUtil;
+import scraper.util.shared.SharedResources;
+
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
-
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.remote.RemoteWebElement;
-
-import scraper.main.Card;
-import scraper.util.ScraperUtil;
-import scraper.util.shared.SharedResources;
 
 public class ABUGames {
 	
@@ -106,8 +105,8 @@ public class ABUGames {
 				
 			} catch (java.lang.IndexOutOfBoundsException e) {
 				ScraperUtil.log("Something wrong: " + url);
-				e.printStackTrace();
-			}
+                ScraperUtil.log(e.getStackTrace());
+            }
 			
 			List<RemoteWebElement> allLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByClassName('cardlink')");
 			pagesRemaining = false;

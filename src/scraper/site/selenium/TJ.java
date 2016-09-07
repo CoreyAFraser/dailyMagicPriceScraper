@@ -1,23 +1,21 @@
 package scraper.site.selenium;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+import scraper.main.Card;
+import scraper.util.ScraperUtil;
+import scraper.util.shared.SharedResources;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebElement;
-
-import scraper.main.Card;
-import scraper.util.ScraperUtil;
-import scraper.util.shared.SharedResources;
 
 public class TJ {
 	
@@ -117,8 +115,8 @@ public class TJ {
 				}
 			} catch(java.lang.ArrayIndexOutOfBoundsException e) {
 				ScraperUtil.log(cards.length);
-				e.printStackTrace(SharedResources.logger);
-			}
+                ScraperUtil.log(e.getStackTrace());
+            }
 		}
 	}
 	

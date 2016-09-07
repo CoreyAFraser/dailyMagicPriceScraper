@@ -1,15 +1,15 @@
 package scraper.site;
 
+import scraper.main.Card;
+import scraper.util.ScraperUtil;
+import scraper.util.shared.SharedResources;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-
-import scraper.main.Card;
-import scraper.util.ScraperUtil;
-import scraper.util.shared.SharedResources;
 
 public class TrollAndToad {
 	
@@ -37,7 +37,7 @@ public class TrollAndToad {
 					card = generateCard(tmp);
 				} catch(IndexOutOfBoundsException e) {
 					ScraperUtil.log("Troll and Toad bugged card " + tmp);
-					e.printStackTrace(SharedResources.logger);
+					ScraperUtil.log(e.getStackTrace());
 				}
 				if(card.getName().length() > SharedResources.nameLength)
 					SharedResources.nameLength = card.getName().length();
@@ -50,11 +50,11 @@ public class TrollAndToad {
 
 		} catch (java.net.UnknownHostException e) {
 			ScraperUtil.log("Troll and Toad is offline");
-			e.printStackTrace(SharedResources.logger);
+			ScraperUtil.log(e.getStackTrace());
 		} catch (MalformedURLException e) {
-			e.printStackTrace(SharedResources.logger);
+			ScraperUtil.log(e.getStackTrace());
 		} catch (IOException e) {
-			e.printStackTrace(SharedResources.logger);
+			ScraperUtil.log(e.getStackTrace());
 		}
 	}
 

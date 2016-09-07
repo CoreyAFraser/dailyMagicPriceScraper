@@ -25,6 +25,7 @@ public class Scrape extends TimerTask {
 	private DateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
 	private String eol = "<br>";
 	private String message = "Price List" + eol;
+    String logFileName;
 
 	private CardFoilComparator cardFoilComparator = new CardFoilComparator();
 
@@ -32,8 +33,9 @@ public class Scrape extends TimerTask {
 
 		try {
 			Date date = new Date();
-			SharedResources.logger = new PrintWriter("logs" + File.separator
-					+ dateTimeFormat.format(date) + "_log.txt", "UTF-8");
+            logFileName = dateTimeFormat.format(date) + "_log.txt";
+            SharedResources.logger = new PrintWriter("logs" + File.separator
+                    + logFileName, "UTF-8");
 
 			ScraperUtil.log("Started Successfully");
 
@@ -47,8 +49,8 @@ public class Scrape extends TimerTask {
 				} catch (java.io.FileNotFoundException e) {
 					message = message + "\r\nStrikeZone appears to be down";
 					ScraperUtil.log("StrikeZone Error");
-					e.printStackTrace(SharedResources.logger);
-				}
+                    ScraperUtil.log(e.getStackTrace());
+                }
 				sortCards();
 
 				try {
@@ -58,8 +60,8 @@ public class Scrape extends TimerTask {
 				} catch(java.io.FileNotFoundException e) {
 					message = message + eol + "Troll and Toad appears to be down";
 					ScraperUtil.log("Troll and Toad Error");
-					e.printStackTrace(SharedResources.logger);
-				}
+                    ScraperUtil.log(e.getStackTrace());
+                }
 				sortCards();
 
 
@@ -86,8 +88,8 @@ public class Scrape extends TimerTask {
 				} catch (java.io.FileNotFoundException e) {
 					message = message + eol + "Untapped Games appears to be down";
 					ScraperUtil.log("Untapped Games Error");
-					e.printStackTrace(SharedResources.logger);
-				}
+                    ScraperUtil.log(e.getStackTrace());
+                }
 				sortCards();
 
 				try {
@@ -97,8 +99,8 @@ public class Scrape extends TimerTask {
 				} catch (java.io.FileNotFoundException e) {
 					message = message + eol +  "ABU appears to be down";
 					ScraperUtil.log("ABU Error");
-					e.printStackTrace(SharedResources.logger);
-				}
+                    ScraperUtil.log(e.getStackTrace());
+                }
 				sortCards();
 
 				try {
@@ -108,8 +110,8 @@ public class Scrape extends TimerTask {
 				} catch (java.io.FileNotFoundException e) {
 					message = message + eol + "Channel Fireball appears to be down";
 					ScraperUtil.log("Channel Fireball Error");
-					e.printStackTrace(SharedResources.logger);
-				}
+                    ScraperUtil.log(e.getStackTrace());
+                }
 				sortCards();
 
 				ScraperUtil.log("Sorting Cards");
@@ -170,31 +172,35 @@ public class Scrape extends TimerTask {
 
 				sortCards();*/
 
-
-
 			} catch (IOException e) {
-				e.printStackTrace(SharedResources.logger);
-				ScraperUtil.log("IOException");
+                ScraperUtil.log(e.getStackTrace());
+                ScraperUtil.log("IOException");
 				SharedResources.driver.quit();
 			} catch (Exception e) {
-				ScraperUtil.log(e.getStackTrace());
-				e.printStackTrace(SharedResources.logger);
-				ScraperUtil.log("Exception");
+                ScraperUtil.log(e.getStackTrace());
+                ScraperUtil.log("Exception");
 				SharedResources.driver.quit();
 			}
 
 			sortCards();
 
-			sendEmail("Corey", "CoreyAFraser@gmail.com");
-			sendEmail("Pat","patbrodericksnc@yahoo.com");
-			sendEmail("Kyle","ksouza-tech@outlook.com");
+            sendEmail("Pat", "patbrodericksnc@yahoo.com", false);
+            sendEmail("Kyle", "ksouza-tech@outlook.com", false);
+            ScraperUtil.calculateTotalElapsedTime();
+
+            try {
+                cleanUpOldLogsAndLists();
+            } catch (Exception e) {
+                ScraperUtil.log(e.getStackTrace());
+            }
 
 			ScraperUtil.calculateTotalElapsedTime();
-
 			SharedResources.logger.close();
-		} catch (Exception e) {
-			e.printStackTrace(SharedResources.logger);
-		}
+
+            sendEmail("Corey", "CoreyAFraser@gmail.com", true);
+        } catch (Exception e) {
+            ScraperUtil.log(e.getStackTrace());
+        }
 		SharedResources.logger.close();
 	}
 
@@ -211,10 +217,9 @@ public class Scrape extends TimerTask {
 			ScraperUtil.calculateElapsedTime();
 			ScraperUtil.log("Cards added: " + SharedResources.cards.size());
 		} catch (Exception e) {
-			System.out.println(e.getStackTrace());
-			System.out.println(e.getCause());
-			e.printStackTrace();
-		}
+            ScraperUtil.log(e.getStackTrace());
+            ScraperUtil.log(e.getCause());
+        }
 	}
 
 	private void zipFile(String path, String file) {
@@ -236,13 +241,13 @@ public class Scrape extends TimerTask {
 
 			zos.close();
 
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
+        } catch (IOException e) {
+            ScraperUtil.log(e.getStackTrace());
+        }
 	}
 
-	private void sendEmail(String name, String eMail) {
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private void sendEmail(String name, String eMail, boolean includeLogs) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String path;
 		String fileName;
 
@@ -269,12 +274,38 @@ public class Scrape extends TimerTask {
 			zipFile(path, fileName);
 			ScraperUtil.log("Sending List to " + eMail + "  " + fileName
 					+ ".zip");
-			Gmail.send(eMail, path, fileName + ".zip", message);
-			ScraperUtil.log("Done sending E-mail");
+            if (includeLogs) {
+                Gmail.send(eMail, message, "." + File.separator + "priceLists" + File.separator + fileName + ".zip",
+                        "." + File.separator + "logs" + File.separator + logFileName);
+            } else {
+                Gmail.send(eMail, message, "." + File.separator + "priceLists" + File.separator + fileName + ".zip");
+            }
+            ScraperUtil.log("Done sending E-mail");
 			ScraperUtil.calculateElapsedTime();
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
-			e.printStackTrace(SharedResources.logger);
-		}
+            ScraperUtil.log(e.getStackTrace());
+        }
 	}
+
+    public void cleanUpOldLogsAndLists() {
+        ScraperUtil.log("Cleaning up Old Lists and Logs");
+        File priceLists = new File("." + File.separator + "priceLists");
+        File logs = new File("." + File.separator + "logs");
+        cleanUp(priceLists);
+        cleanUp(logs);
+    }
+
+    public void cleanUp(File file) {
+        if (file.isDirectory()) {
+            for (File f : file.listFiles()) {
+                cleanUp(f);
+            }
+        } else {
+            long diff = new Date().getTime() - file.lastModified();
+            if (diff > 7 * 24 * 60 * 60 * 1000) {
+                file.delete();
+            }
+        }
+    }
 
 }
