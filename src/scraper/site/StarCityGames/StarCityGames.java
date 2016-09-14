@@ -1,6 +1,11 @@
 package scraper.site.StarCityGames;
 
 import com.google.gson.Gson;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 import scraper.main.Card;
 import scraper.util.ScraperUtil;
 import scraper.util.shared.SharedResources;
@@ -10,29 +15,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.LinkedHashSet;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class StarCityGames {
 
     public static void getCards() throws IOException {
         ScraperUtil.log("Starting SCG");
-
-        //http://sales.starcitygames.com/spoiler/spoiler.php
-        //scrape set names and id from here
-
-        //http://www.starcitygames.com/buylist/search?search-type=category&id=5061
-        //pull json for each set here
-
         try {
-            //LinkedHashSet<String> sets = getAllSets();
-
             for(int i=1000;i<2000;i++) {
-                processSetId(i);
+                processSetIdForBuyList(i);
             }
 
             for(int i=5000;i<6000;i++) {
-                processSetId(i);
+                processSetIdForBuyList(i);
             }
         } catch (Exception e) {
             ScraperUtil.log(e.getStackTrace());
@@ -41,7 +38,7 @@ public class StarCityGames {
         ScraperUtil.log("SCG ending");
     }
 
-    private static void processSetId(int setId) {
+    private static void processSetIdForBuyList(int setId) {
         SCGSearchDTO scgSearchDTO = getCardsForSet(setId);
         //ScraperUtil.log(scgSearchDTO.getResults().size() + " cards for set Id: " + setId);
         if(scgSearchDTO.getResults().size() > 0) {
@@ -88,31 +85,5 @@ public class StarCityGames {
             ScraperUtil.log(e.getStackTrace());
         }
         return null;
-    }
-
-    private static LinkedHashSet<String> getAllSets() throws Exception {
-        LinkedHashSet<String> sets = new LinkedHashSet<>();
-
-        SharedResources.driver.navigate().to("http://sales.starcitygames.com/spoiler/spoiler.php");
-
-        String page = SharedResources.driver.getPageSource();
-
-        int index = 0,
-                beginIndex,
-                endIndex;
-
-        index = page.indexOf("Set(s):", index + 1) + 1;
-        index = page.indexOf("<input", index + 1) + 1;
-
-        while ((index = page.indexOf("childbox magic", index)) != -1) {
-            beginIndex = page.indexOf("value", index);
-            beginIndex = page.indexOf("=", beginIndex) + 2;
-            endIndex = page.indexOf("\"", beginIndex);
-            //System.out.println(page.substring(beginIndex, endIndex));
-            sets.add(page.substring(beginIndex, endIndex));
-            index = endIndex;
-        }
-
-        return sets;
     }
 }
