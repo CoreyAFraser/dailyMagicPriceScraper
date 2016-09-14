@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60b1a9fe-1105-460c-8402-10d69d9203ec" name="Default" comment="Convert to Maven&#10;Code Clean up&#10;Address Warnings">
+    <list default="true" id="60b1a9fe-1105-460c-8402-10d69d9203ec" name="Default" comment="Reimport Maven">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="seleniumpricescraper.iws" />
@@ -27,8 +27,8 @@
       <file leaf-file-name="Scrape.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/scraper/main/Scrape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="38" column="76" selection-start-line="38" selection-start-column="76" selection-end-line="38" selection-end-column="76" />
+            <state relative-caret-position="368">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -426,7 +426,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Normalize set names by removing &quot;singles&quot; and &quot;foil&quot;" />
     <MESSAGE value="Convert to Maven&#10;Code Clean up&#10;Address Warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Convert to Maven&#10;Code Clean up&#10;Address Warnings" />
+    <MESSAGE value="Reimport Maven" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reimport Maven" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -778,8 +779,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/scraper/main/Scrape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="38" column="76" selection-start-line="38" selection-start-column="76" selection-end-line="38" selection-end-column="76" />
+        <state relative-caret-position="368">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
