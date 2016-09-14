@@ -3,13 +3,36 @@ package scraper.main;
 import scraper.util.shared.SharedResources;
 
 public class Card {
+
+	public enum PriceType {
+	    RETAIL  ("blue", "green"),
+        BUYLIST ("black", "red");
+
+        private String textColor;
+        private String foilTextColor;
+
+        PriceType(String textColor, String foilTextColor) {
+            this.textColor = textColor;
+            this.foilTextColor = foilTextColor;
+        }
+
+        public String getTextColor() {
+            return textColor;
+        }
+
+        public String getFoilTextColor() {
+            return foilTextColor;
+        }
+    }
+
 	private String set = "t";
 	private String name = "t";
 	private String foil = " ";
 	private double mintPrice = -1.0;
-	private double pldPrice = 0.0;
+	private double pldPrice = -1.0;
 	private String quantity = "-1";
 	private String site = "t";
+	private PriceType priceType = PriceType.BUYLIST;
 	
 	public String getQuantity() {
 		return quantity;
@@ -73,9 +96,9 @@ public class Card {
 	public String toStringForFile(int count) {
 		String textColor;
 		if(this.foil.equals("Foil"))
-			textColor = "red";
+			textColor = priceType.getFoilTextColor();
 		else
-			textColor = "black";
+			textColor = priceType.getTextColor();
 		
 		String backgroundColor;
 		if((count%2)==0)
@@ -89,6 +112,7 @@ public class Card {
 						"<td style=\"color:" + textColor + ";\">" + this.mintPrice + "</td>\r\n" +
 						"<td style=\"color:" + textColor + ";\">" + this.pldPrice + "</td>\r\n" +
 						"<td style=\"color:" + textColor + ";\">" + this.quantity + "</td>\r\n" +
+                        "<td style=\"color:" + textColor + ";\">" + this.priceType.name() + "</td>\r\n" +
 						"<td style=\"color:" + textColor + ";\">" + this.foil + "</td>\r\n" +
 						"<td style=\"color:" + textColor + ";\">" + this.site + "</td>\r\n</tr>";
 				
@@ -107,73 +131,74 @@ public class Card {
 	}
 
 	public void setSet(String set) {
-		set = set.replace(":","");
-
-		if(set.contains("Deck") && !set.contains("Commander") && !set.contains("Packs") && !set.contains("masters")) {
-			set = set.replace("Decks","").replace("Deck", "").replace("Series", "").trim();
-		}
-
-		String tempSet = set.toLowerCase();
-		if(tempSet.contains("promo")) {
-			set = "promos";
-		}
-
-        if (tempSet.contains("zendikar") && tempSet.contains("expeditions")) {
-            set = "zendikar expeditions";
-        }
+	    set = set.toLowerCase();
 
         if(set.equalsIgnoreCase("futuresight"))
-			set = "Future Sight";
+			set = "future sight";
 		else
-			if(set.equalsIgnoreCase("Portal 3 Kingdoms"))
-				set = "Portal Three Kingdoms";
+			if(set.equalsIgnoreCase("portal 3 kingdoms"))
+				set = "portal three kingdoms";
 			else
-				if(set.equalsIgnoreCase("Portal 1"))
-					set = "Portal";
+				if(set.equalsIgnoreCase("portal 1"))
+					set = "portal";
 				else
-					if(set.equalsIgnoreCase("Time Spiral Time Shifted") || set.equalsIgnoreCase("TimeShifted"))
-						set = "Time Spiral - Timeshifted";
+					if(set.equalsIgnoreCase("time spiral time shifted") || set.equalsIgnoreCase("timeshifted"))
+						set = "time spiral timeshifted";
 					else
 						if(set.contains("vs")) {
-							set = set.replace("Duel","").replace("Deck", "").replace("Decks","").replace(":","").trim();
-							set = "Duel Decks: " + set;
+							set = set.replace("duel","").replace("deck", "").replace("decks","").replace(":","").trim();
+							set = "duel decks: " + set;
 						} else
-							if(set.equalsIgnoreCase("Portal The Second Age"))
-								set = "Portal Second Age";
-							else
-								if(set.contains("Collectors'") || set.contains("Collector's"))
-									set = set.replace("-", "");
-		
-		if(set.contains("Revised") || set.contains("3rd"))
-			set = "Revised";
+							if(set.equalsIgnoreCase("portal the second age"))
+								set = "portal second age";
+                            else
+                                if(set.contains("revised") || set.contains("3rd"))
+                                    set = "revised";
+                                else
+                                    if(set.contains("deck") && !set.contains("commander") && !set.contains("packs") && !set.contains("masters"))
+                                        set = set.replace("decks","").replace("deck", "").replace("series", "").trim();
+                                    else
+                                        if(set.contains("promo") || set.contains("promotional cards"))
+                                            set = "promos";
+                                        else
+                                            if (set.contains("zendikar") && set.contains("expeditions"))
+                                                set = "zendikar expeditions";
 
-
-        this.set = set.replace("M10","").replace("M11","").replace("M12","").replace("M13","").replace("M14","")
-						.replace("M15","").replace("(","").replace(")","").replace("/", "")
-						.replace("Core Set","").replace("Edition", "").replace("Gift Boxes:", "")
-						.replace("Deck Series: ", "").replace("Promo Cards", "Promos")
-						.replace("Promotional Cards","Promos").replace(": City of Guilds", "")
-						.replace(" of Kamigawa", "").replace(".","").replace("Magic Cards","").replace("ColdSnap", "Coldsnap")
-						.replace("Classic","").replace("Re-Release", "Theme Deck Reprints")
-						.replace("\\","").replace("Collector's ", "CE").replace("Colectors'", "CE").replace("MTG","")
-						.replace("Premium", "Duel Decks:").replace("PDS", "Duel Decks:").replace("City of Guilds","")
-                .replace("\\s+", " ").replace("&", "and").replace("Gift Boxes", "").toLowerCase().replace("foil", "")
-                .replace("singles", "").trim();
+        this.set = set.replace(":","").replace("(","").replace(")","").replace("/", "").replace("\\","").replace("&", "and").replace(".","").replace("-", "")
+                .replace("m10","").replace("m11","").replace("m12","").replace("m13","").replace("m14","").replace("m15","")
+                .replace("core set","").replace("edition", "").replace("gift boxes", "").replace("deck series ", "")
+                .replace("promo cards", "promos").replace("city of guilds", "").replace("of kamigawa", "").replace("magic cards","")
+                .replace("classic","").replace("re-release", "theme deck reprints").replace("collector's ", "ce").replace("colectors'", "ce")
+                .replace("mtg","").replace("premium", "duel decks:").replace("pds", "duel decks").replace("gift boxes", "")
+                .replace("foil", "").replace("singles", "").replace("\\s+", " ").trim();
     }
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
-		this.name = name.replace("-","").replace("Foil", "").replace("FOIL", "").trim().toLowerCase();
+	    this.name = name.toLowerCase().replace("\n", "").replace("-","").replace("foil", "").trim();
+		//this.name = name.replace("-","").replace("Foil", "").replace("FOIL", "").trim().toLowerCase();
 	}
+
 	public String getFoil() {
 		return foil;
 	}
+
 	public void setFoil(String foil) {
 		this.foil = foil;
 	}
-	
-	@Override
+
+    public PriceType getPriceType() {
+        return priceType;
+    }
+
+    public void setPriceType(PriceType priceType) {
+        this.priceType = priceType;
+    }
+
+    @Override
     public boolean equals(Object obj) {
 		if(obj == null) {
 			return false;
