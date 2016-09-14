@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60b1a9fe-1105-460c-8402-10d69d9203ec" name="Default" comment="Normalize set names by removing &quot;singles&quot; and &quot;foil&quot;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/seleniumpricescraper/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seleniumpricescraper.iml" afterPath="$PROJECT_DIR$/seleniumpricescraper.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scraper/main/Gmail.java" afterPath="$PROJECT_DIR$/src/scraper/main/Gmail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scraper/main/Scrape.java" afterPath="$PROJECT_DIR$/src/scraper/main/Scrape.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scraper/site/StarCityGames/StarCityGames.java" afterPath="$PROJECT_DIR$/src/scraper/site/StarCityGames/StarCityGames.java" />
     </list>
     <ignored path="seleniumpricescraper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,14 +34,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Scrape.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Scrape.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scraper/main/Scrape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="76" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StarCityGames.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/scraper/site/StarCityGames/StarCityGames.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="62" column="104" selection-start-line="62" selection-start-column="104" selection-end-line="62" selection-end-column="104" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,11 +124,11 @@
         <option value="$PROJECT_DIR$/src/scraper/util/ScraperUtil.java" />
         <option value="$PROJECT_DIR$/src/scraper/util/shared/SharedResources.java" />
         <option value="$PROJECT_DIR$/src/scraper/main/RetailCard.java" />
-        <option value="$PROJECT_DIR$/src/scraper/site/StarCityGames/StarCityGames.java" />
         <option value="$PROJECT_DIR$/src/scraper/site/selenium/CardKingdom.java" />
         <option value="$PROJECT_DIR$/src/scraper/main/Card.java" />
         <option value="$PROJECT_DIR$/src/scraper/main/Gmail.java" />
         <option value="$PROJECT_DIR$/src/scraper/main/Scrape.java" />
+        <option value="$PROJECT_DIR$/src/scraper/site/StarCityGames/StarCityGames.java" />
       </list>
     </option>
   </component>
@@ -198,7 +202,7 @@
     <property name="project.structure.side.proportion" value="0.1367816" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="gmail&#9;FILE&#9;file://C:/Users/Corey/Documents/workspace/dailyMagicPriceScraper/src/scraper/main/Gmail.java&#10;Scrap&#9;FILE&#9;file://C:/Users/Corey/Documents/workspace/dailyMagicPriceScraper/src/scraper/util/ScraperUtil.java&#10;Trol&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/site/TrollAndToad.java&#10;Scrape&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Scrape.java&#10;Card.java&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Card.java" />
+    <property name="SearchEverywhereHistoryKey" value="star&#9;FILE&#9;file://C:/Users/ElayneF/Documents/seleniumpricescraper/src/scraper/site/StarCityGames/StarCityGames.java&#10;gmail&#9;FILE&#9;file://C:/Users/Corey/Documents/workspace/dailyMagicPriceScraper/src/scraper/main/Gmail.java&#10;Scrap&#9;FILE&#9;file://C:/Users/Corey/Documents/workspace/dailyMagicPriceScraper/src/scraper/util/ScraperUtil.java&#10;Trol&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/site/TrollAndToad.java&#10;Scrape&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Scrape.java&#10;Card.java&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Card.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -374,7 +378,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -383,7 +387,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38678223" sideWeight="0.50586355" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5006974" sideWeight="0.49713466" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5006974" sideWeight="0.49713466" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26289397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -469,9 +473,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -500,9 +502,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -566,9 +566,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2340">
           <caret line="156" column="13" selection-start-line="156" selection-start-column="13" selection-end-line="156" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -721,14 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scraper/site/StarCityGames/StarCityGames.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="87" column="5" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scraper/site/selenium/ChannelFireball.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -763,11 +753,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scraper/main/Scrape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="76" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="238">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scraper/site/StarCityGames/StarCityGames.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="62" column="104" selection-start-line="62" selection-start-column="104" selection-end-line="62" selection-end-column="104" />
+          <folding />
         </state>
       </provider>
     </entry>
