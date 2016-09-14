@@ -35,7 +35,7 @@ public class Gmail {
             msg.setFrom(new InternetAddress(userName));
             InternetAddress[] toAddresses = { new InternetAddress(eMail) };
 	        msg.setRecipients(Message.RecipientType.TO, toAddresses);
-	        msg.setSubject("CardKingdom Test Price List");
+	        msg.setSubject("Price List");
 	        msg.setSentDate(new Date());
             MimeBodyPart messageBodyPart = new MimeBodyPart();
             messageBodyPart.setContent(message, "text/html");

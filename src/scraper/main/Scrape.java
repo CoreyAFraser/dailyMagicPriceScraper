@@ -44,37 +44,37 @@ public class Scrape extends TimerTask {
 			SharedResources.begin = System.currentTimeMillis();
 			SharedResources.cards = new ArrayList<>();
 			try {
-//				try {
-//					ScraperUtil.log("StrikeZone Starting");
-//					StrikeZone.getCards(); ScraperUtil.log("StrikeZone Done");
-//				} catch (java.io.FileNotFoundException e) {
-//					message = message + "\r\nStrikeZone appears to be down";
-//					ScraperUtil.log("StrikeZone Error");
-//                    ScraperUtil.log(e.getStackTrace());
-//                }
-//				sortCards();
-//
-//				try {
-//					ScraperUtil.log("Troll and Toad Starting");
-//					TrollAndToad.getCards();
-//					ScraperUtil.log("Troll and Toad Done");
-//				} catch(java.io.FileNotFoundException e) {
-//					message = message + eol + "Troll and Toad appears to be down";
-//					ScraperUtil.log("Troll and Toad Error");
-//                    ScraperUtil.log(e.getStackTrace());
-//                }
-//				sortCards();
+				try {
+					ScraperUtil.log("StrikeZone Starting");
+					StrikeZone.getCards(); ScraperUtil.log("StrikeZone Done");
+				} catch (java.io.FileNotFoundException e) {
+					message = message + "\r\nStrikeZone appears to be down";
+					ScraperUtil.log("StrikeZone Error");
+                    ScraperUtil.log(e.getStackTrace());
+                }
+				sortCards();
 
-//                try {
-//                    ScraperUtil.log("SCG Starting");
-//                    StarCityGames.getCards();
-//                    ScraperUtil.log("SCG Done");
-//                } catch (java.io.FileNotFoundException e) {
-//                    message = message + eol + "SCG appears to be down";
-//                    ScraperUtil.log("SCG Error");
-//                    e.printStackTrace(SharedResources.logger);
-//                }
-//                sortCards();
+				try {
+					ScraperUtil.log("Troll and Toad Starting");
+					TrollAndToad.getCards();
+					ScraperUtil.log("Troll and Toad Done");
+				} catch(java.io.FileNotFoundException e) {
+					message = message + eol + "Troll and Toad appears to be down";
+					ScraperUtil.log("Troll and Toad Error");
+                    ScraperUtil.log(e.getStackTrace());
+                }
+				sortCards();
+
+                try {
+                    ScraperUtil.log("SCG Starting");
+                    StarCityGames.getCards();
+                    ScraperUtil.log("SCG Done");
+                } catch (java.io.FileNotFoundException e) {
+                    message = message + eol + "SCG appears to be down";
+                    ScraperUtil.log("SCG Error");
+                    e.printStackTrace(SharedResources.logger);
+                }
+                sortCards();
 
 				ScraperUtil.log("Starting Browser");
 				SharedResources.driver = new FirefoxDriver();
@@ -83,38 +83,38 @@ public class Scrape extends TimerTask {
 
 
 
-//				try {
-//					ScraperUtil.log("Untapped Games Starting");
-//					UntappedGames.getCards();
-//					ScraperUtil.log("Untapped Games Done");
-//				} catch (java.io.FileNotFoundException e) {
-//					message = message + eol + "Untapped Games appears to be down";
-//					ScraperUtil.log("Untapped Games Error");
-//                    ScraperUtil.log(e.getStackTrace());
-//                }
-//				sortCards();
-//
-//				try {
-//					ScraperUtil.log("ABU Starting");
-//					ABUGames.getCards();
-//					ScraperUtil.log("ABU Done");
-//				} catch (java.io.FileNotFoundException e) {
-//					message = message + eol +  "ABU appears to be down";
-//					ScraperUtil.log("ABU Error");
-//                    ScraperUtil.log(e.getStackTrace());
-//                }
-//				sortCards();
-//
-//				try {
-//					ScraperUtil.log("Channel Fireball Starting");
-//					ChannelFireball.getCards();
-//					ScraperUtil.log("Channel Fireball Done");
-//				} catch (java.io.FileNotFoundException e) {
-//					message = message + eol + "Channel Fireball appears to be down";
-//					ScraperUtil.log("Channel Fireball Error");
-//                    ScraperUtil.log(e.getStackTrace());
-//                }
-//				sortCards();
+				try {
+					ScraperUtil.log("Untapped Games Starting");
+					UntappedGames.getCards();
+					ScraperUtil.log("Untapped Games Done");
+				} catch (java.io.FileNotFoundException e) {
+					message = message + eol + "Untapped Games appears to be down";
+					ScraperUtil.log("Untapped Games Error");
+                    ScraperUtil.log(e.getStackTrace());
+                }
+				sortCards();
+
+				try {
+					ScraperUtil.log("ABU Starting");
+					ABUGames.getCards();
+					ScraperUtil.log("ABU Done");
+				} catch (java.io.FileNotFoundException e) {
+					message = message + eol +  "ABU appears to be down";
+					ScraperUtil.log("ABU Error");
+                    ScraperUtil.log(e.getStackTrace());
+                }
+				sortCards();
+
+				try {
+					ScraperUtil.log("Channel Fireball Starting");
+					ChannelFireball.getCards();
+					ScraperUtil.log("Channel Fireball Done");
+				} catch (java.io.FileNotFoundException e) {
+					message = message + eol + "Channel Fireball appears to be down";
+					ScraperUtil.log("Channel Fireball Error");
+                    ScraperUtil.log(e.getStackTrace());
+                }
+				sortCards();
 
                 try {
                     ScraperUtil.log("CardKingdom Starting");
