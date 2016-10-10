@@ -264,6 +264,7 @@ public class Scrape extends TimerTask {
 					"<td style=\"color:" + textColor + ";\"> Mint Price </td>\r\n" +
 					"<td style=\"color:" + textColor + ";\"> Played Price</td>\r\n" +
 					"<td style=\"color:" + textColor + ";\"> Quantity </td>\r\n" +
+					"<td style=\"color:" + textColor + ";\"> Price Type </td>\r\n" +
 					"<td style=\"color:" + textColor + ";\"> Foil </td>\r\n" +
 					"<td style=\"color:" + textColor + ";\"> Set </td>\r\n</tr>";
 			writer.println(headers);
