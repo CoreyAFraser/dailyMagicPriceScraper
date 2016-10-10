@@ -172,7 +172,8 @@ public class Scrape extends TimerTask {
                 ScraperUtil.log("IOException");
 				SharedResources.driver.quit();
 			} catch (Exception e) {
-                ScraperUtil.log(e.getStackTrace());
+				ScraperUtil.log(e);
+				ScraperUtil.log(e.getStackTrace());
                 ScraperUtil.log("Exception");
 				SharedResources.driver.quit();
 			}
@@ -194,7 +195,8 @@ public class Scrape extends TimerTask {
 
             sendEmail("Corey", "CoreyAFraser@gmail.com", true);
         } catch (Exception e) {
-            ScraperUtil.log(e.getStackTrace());
+			ScraperUtil.log(e);
+			ScraperUtil.log(e.getStackTrace());
         }
 		SharedResources.logger.close();
 	}
