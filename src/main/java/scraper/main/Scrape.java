@@ -1,5 +1,6 @@
 package scraper.main;
 
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import scraper.site.StarCityGames.StarCityGames;
 import scraper.site.StrikeZone;
@@ -114,7 +115,11 @@ public class Scrape extends TimerTask {
 					message = message + eol + "Channel Fireball appears to be down";
 					ScraperUtil.log("Channel Fireball Error");
                     ScraperUtil.log(e.getStackTrace());
-                }
+				} catch (WebDriverException we) {
+					message = message + eol + "Channel Fireball has a javascript issue";
+					ScraperUtil.log("Channel Fireball WebDriver Error");
+					ScraperUtil.log(we.getStackTrace());
+				}
 				sortCards();
 
                 try {
@@ -180,9 +185,9 @@ public class Scrape extends TimerTask {
 
 			sortCards();
 
-//            sendEmail("Pat", "patbrodericksnc@yahoo.com", false);
-//            sendEmail("Kyle", "ksouza-tech@outlook.com", false);
-            ScraperUtil.calculateTotalElapsedTime();
+			sendEmail("Pat", "patbrodericksnc@yahoo.com", false);
+			sendEmail("Kyle", "ksouza-tech@outlook.com", false);
+			ScraperUtil.calculateTotalElapsedTime();
 
             try {
                 cleanUpOldLogsAndLists();

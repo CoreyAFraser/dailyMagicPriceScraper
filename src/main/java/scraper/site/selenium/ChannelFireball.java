@@ -102,7 +102,7 @@ public class ChannelFireball {
 
         SharedResources.driver.navigate().to("http://store.channelfireball.com/magic_the_gathering_sets_landing");
 		
-		List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return jQuery.find('.set')");
+		List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByClassName('set')");
 		
 		for(RemoteWebElement set : setLinks) {
             String link = set.getAttribute("href").replace("catalog", "buylist");
