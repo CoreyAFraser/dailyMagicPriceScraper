@@ -112,9 +112,8 @@ public class Card {
                                     else
                                         if(set.contains("promo") || set.contains("promotional cards"))
                                             set = "promos";
-                                        else
-                                            if (set.contains("zendikar") && set.contains("expeditions"))
-                                                set = "zendikar expeditions";
+                                        else if (set.contains("zendikar") && (set.contains("expeditions") || set.contains("exps")))
+											set = "zendikar expeditions";
 
         this.set = set.replace(":","").replace("(","").replace(")","").replace("/", "").replace("\\","").replace("&", "and").replace(".","").replace("-", "")
                 .replace("m10","").replace("m11","").replace("m12","").replace("m13","").replace("m14","").replace("m15","")
@@ -130,7 +129,7 @@ public class Card {
 	}
 
 	public void setName(String name) {
-	    this.name = name.toLowerCase().replace("\n", "").replace("-","").replace("foil", "").trim();
+		this.name = name.toLowerCase().replace("\n", "").replace("-", "").replace("foil", "").replace("zendikar expeditions", "").replace("expeditions", "").trim();
 	}
 
 	public String getFoil() {
