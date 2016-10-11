@@ -36,8 +36,10 @@ public class ABUGames {
 			endIndex,
 			index = 0;
 		Card card;
-		
-		while(pagesRemaining) {
+
+        int page = 1;
+        ScraperUtil.log(url);
+        while(pagesRemaining) {
 			try {
 				cardsList = (ArrayList<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByName('inventoryform')");
 				if (cardsList != null && !cardsList.isEmpty()) {
@@ -107,7 +109,10 @@ public class ABUGames {
 			for(RemoteWebElement link : allLinks) {
 				if(link.getText().equals("Next >")) {
 					pagesRemaining = true;
-					link.click();
+                    ScraperUtil.log(page);
+                    page++;
+                    ScraperUtil.calculateElapsedTime();
+                    link.click();
 					break;
 				} else {
 					pagesRemaining = false;
