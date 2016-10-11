@@ -107,6 +107,7 @@ public class ABUGames {
 			for(RemoteWebElement link : allLinks) {
 				if(link.getText().equals("Next >")) {
 					pagesRemaining = true;
+					ScraperUtil.log("Next Clicked " + url);
 					link.click();
 					break;
 				} else {
