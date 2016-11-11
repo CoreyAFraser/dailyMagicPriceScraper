@@ -186,7 +186,7 @@ public class Scrape extends TimerTask {
 			sortCards();
 
 			sendEmail("Pat", "patbrodericksnc@yahoo.com", false);
-			sendEmail("Kyle", "ksouza-tech@outlook.com", false);
+//			sendEmail("Kyle", "ksouza-tech@outlook.com", false);
 			ScraperUtil.calculateTotalElapsedTime();
 
             try {
