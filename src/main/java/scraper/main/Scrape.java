@@ -37,8 +37,8 @@ public class Scrape extends TimerTask {
 		try {
 			Date date = new Date();
             logFileName = dateTimeFormat.format(date) + "_log.txt";
-            SharedResources.logger = new PrintWriter("logs" + File.separator
-                    + logFileName, "UTF-8");
+			SharedResources.logger = new PrintWriter("." + File.separator + "logs" + File.separator
+					+ logFileName, "UTF-8");
 
 			ScraperUtil.log("Started Successfully");
 
@@ -80,6 +80,7 @@ public class Scrape extends TimerTask {
 
 				ScraperUtil.log("Starting Browser");
 				SharedResources.driver = new FirefoxDriver();
+				SharedResources.driver.manage().window().maximize();
 				ScraperUtil.log("Browser Open");
 				ScraperUtil.calculateElapsedTime();
 
@@ -186,7 +187,6 @@ public class Scrape extends TimerTask {
 			sortCards();
 
 			sendEmail("Pat", "patbrodericksnc@yahoo.com", false);
-//			sendEmail("Kyle", "ksouza-tech@outlook.com", false);
 			ScraperUtil.calculateTotalElapsedTime();
 
             try {
@@ -254,8 +254,8 @@ public class Scrape extends TimerTask {
 		String fileName;
 
 		try {
-			path = "priceLists" + File.separator;
-            Date date = new Date();
+			path = "." + File.separator + "priceLists" + File.separator;
+			Date date = new Date();
 			fileName = name + "-pricelist-" + dateFormat.format(date);
 			PrintWriter writer = new PrintWriter(path + fileName + ".html",
 					"UTF-8");

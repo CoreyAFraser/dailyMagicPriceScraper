@@ -22,7 +22,7 @@ public class ChannelFireball {
             getAllCards(url);
         }
     }
-	
+
 	private static void getAllCards(String url) throws Exception {
 		Object[] cardNames;
 		Object[] prices;
@@ -79,37 +79,72 @@ public class ChannelFireball {
                     ScraperUtil.log(e.getStackTrace());
                 }
 
-                List<RemoteWebElement> nextPageLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return jQuery.find('.next_page')");
+                List<RemoteWebElement> nextPageLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByClassName('next_page')");
                 if (nextPageLinks != null && !nextPageLinks.isEmpty()) {
                     RemoteWebElement nextPageLink = nextPageLinks.get(0);
-                    url = nextPageLink.getAttribute("href").replace("catalog", "buylist");
+                    url = nextPageLink.getAttribute("href");
+                    ScraperUtil.log(url);
                     nextPageLink.click();
                 } else {
                     pagesRemaining = false;
                 }
             } catch (WebDriverException e) {
                 ScraperUtil.log(url + " doesn't exist");
-                pagesRemaining = false;
+                ScraperUtil.log(e.getMessage());
+                ScraperUtil.log(e.getStackTrace());
+                try {
+                    List<RemoteWebElement> nextPageLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByClassName('next_page')");
+                    if (nextPageLinks != null && !nextPageLinks.isEmpty()) {
+                        RemoteWebElement nextPageLink = nextPageLinks.get(0);
+                        url = nextPageLink.getAttribute("href");
+                        ScraperUtil.log(url);
+                        nextPageLink.click();
+                    } else {
+                        pagesRemaining = false;
+                    }
+                } catch (WebDriverException ex) {
+                    ScraperUtil.log(url + " really doesn't exist");
+                    ScraperUtil.log(ex.getMessage());
+                    ScraperUtil.log(ex.getStackTrace());
+                    pagesRemaining = false;
+                }
             } catch (Exception e) {
                 ScraperUtil.log(e);
                 ScraperUtil.log(e.getStackTrace());
             }
         }
-	}
+    }
 
     private static LinkedHashSet<String> getAllSets() throws Exception {
         LinkedHashSet<String> sets = new LinkedHashSet<>();
+        LinkedHashSet<String> blocks = getAllBlocks();
 
-        SharedResources.driver.navigate().to("http://store.channelfireball.com/magic_the_gathering_sets_landing");
-		
-		List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByClassName('set')");
-		
-		for(RemoteWebElement set : setLinks) {
-            String link = set.getAttribute("href").replace("catalog", "buylist");
-            sets.add(link);
-		}
-		
-		return sets;
-	}
+        for (String block : blocks) {
+            SharedResources.driver.navigate().to(block);
+            List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByClassName('name')");
+            for (RemoteWebElement set : setLinks) {
+                String link = set.getAttribute("href");
+                ScraperUtil.log(link);
+                sets.add(link);
+            }
+        }
 
+        return sets;
+    }
+
+    private static LinkedHashSet<String> getAllBlocks() throws Exception {
+        LinkedHashSet<String> blocks = new LinkedHashSet<>();
+
+        SharedResources.driver.navigate().to("http://store.channelfireball.com/buylist/magic_singles/8");
+
+        List<RemoteWebElement> blockLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByClassName('name')");
+
+        for (RemoteWebElement block : blockLinks) {
+            String link = block.getAttribute("href");
+            ScraperUtil.log(link);
+            blocks.add(link);
+        }
+
+        return blocks;
+    }
 }
