@@ -32,7 +32,7 @@
     </dependencies>
 
     <build>
-        <finalName>fileWatcher</finalName>
+        <finalName>seleniumpricescraper</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

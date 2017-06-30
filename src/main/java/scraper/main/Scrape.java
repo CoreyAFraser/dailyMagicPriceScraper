@@ -84,8 +84,6 @@ public class Scrape extends TimerTask {
 				ScraperUtil.log("Browser Open");
 				ScraperUtil.calculateElapsedTime();
 
-
-
 				try {
 					ScraperUtil.log("Untapped Games Starting");
 					UntappedGames.getCards();

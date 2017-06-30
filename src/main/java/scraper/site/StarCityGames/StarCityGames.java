@@ -35,7 +35,6 @@ public class StarCityGames {
         SCGSearchDTO scgSearchDTO = getCardsForSet(setId);
         assert scgSearchDTO != null;
         if(scgSearchDTO.getResults().size() > 0) {
-            ScraperUtil.log("Results for Set Id: " + setId + " - " + scgSearchDTO.getResults().size());
             for (List<SCGCard> scgCards : scgSearchDTO.getResults()) {
                 for (SCGCard scgCard : scgCards) {
                     if (scgCard.isAddable()) {

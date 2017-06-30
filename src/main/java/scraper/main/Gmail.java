@@ -14,7 +14,7 @@ class Gmail {
 
     static void send(String eMail, String message, String... files) {
         final String userName = "DailyMagicList@gmail.com";
-        final String password = "dailyMagicList1";
+        final String password = "magicPriceScraper";
 
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
@@ -35,8 +35,8 @@ class Gmail {
             msg.setFrom(new InternetAddress(userName));
             InternetAddress[] toAddresses = { new InternetAddress(eMail) };
 	        msg.setRecipients(Message.RecipientType.TO, toAddresses);
-	        msg.setSubject("Price List");
-	        msg.setSentDate(new Date());
+            msg.setSubject("New Price List");
+            msg.setSentDate(new Date());
             MimeBodyPart messageBodyPart = new MimeBodyPart();
             messageBodyPart.setContent(message, "text/html");
             Multipart multipart = new MimeMultipart();
@@ -52,6 +52,7 @@ class Gmail {
 	        Transport.send(msg);
 
         } catch (Exception e) {
+            ScraperUtil.log(e);
             ScraperUtil.log(e.getStackTrace());
         }
 	}

@@ -106,7 +106,7 @@ public class UntappedGames {
         pages.add(url);
         try {
             SharedResources.driver.navigate().to(url);
-            List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return jQuery.find('.pagination a')");
+            List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.querySelectorAll('a.pagination')");
 
             for (RemoteWebElement set : setLinks) {
                 link = set.getAttribute("href");
@@ -124,7 +124,7 @@ public class UntappedGames {
 
         SharedResources.driver.navigate().to("http://www.untappedgames.com/buylist");
 
-        List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return jQuery.find('.depth_3 a')");
+        List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.querySelectorAll('a.depth_3')");
 
         for (RemoteWebElement set : setLinks) {
             String link = set.getAttribute("href");

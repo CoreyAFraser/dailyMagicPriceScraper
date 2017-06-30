@@ -23,8 +23,7 @@ public class ABUGames {
 		}
 		
 	}
-	
-	
+
 	private static void getAllCards(String url) throws Exception {
 		List<RemoteWebElement> cardsList;
 		String text;
@@ -38,7 +37,6 @@ public class ABUGames {
 		Card card;
 
         int page = 1;
-        ScraperUtil.log(url);
         while(pagesRemaining) {
 			try {
 				cardsList = (ArrayList<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByName('inventoryform')");
@@ -109,9 +107,7 @@ public class ABUGames {
 			for(RemoteWebElement link : allLinks) {
 				if(link.getText().equals("Next >")) {
 					pagesRemaining = true;
-                    ScraperUtil.log(page);
                     page++;
-                    ScraperUtil.calculateElapsedTime();
                     link.click();
 					break;
 				} else {

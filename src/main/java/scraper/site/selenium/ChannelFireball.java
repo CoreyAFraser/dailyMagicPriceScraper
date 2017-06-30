@@ -83,7 +83,6 @@ public class ChannelFireball {
                 if (nextPageLinks != null && !nextPageLinks.isEmpty()) {
                     RemoteWebElement nextPageLink = nextPageLinks.get(0);
                     url = nextPageLink.getAttribute("href");
-                    ScraperUtil.log(url);
                     nextPageLink.click();
                 } else {
                     pagesRemaining = false;
@@ -124,7 +123,6 @@ public class ChannelFireball {
             List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByClassName('name')");
             for (RemoteWebElement set : setLinks) {
                 String link = set.getAttribute("href");
-                ScraperUtil.log(link);
                 sets.add(link);
             }
         }
@@ -141,7 +139,6 @@ public class ChannelFireball {
 
         for (RemoteWebElement block : blockLinks) {
             String link = block.getAttribute("href");
-            ScraperUtil.log(link);
             blocks.add(link);
         }
 
