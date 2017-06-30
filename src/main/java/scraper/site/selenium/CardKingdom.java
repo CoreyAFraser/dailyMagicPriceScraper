@@ -12,7 +12,7 @@ import java.util.List;
 public class CardKingdom {
 
     public static void getCards() throws Exception {
-        getAllCards("http://www.cardkingdom.com/purchasing/mtg_singles/?filter%5Bsort%5D=&search=mtg_advanced&filter%5Bname%5D=&filter%5Bcategory_id%5D=0&filter%5Bfoil%5D=1&filter%5Bnonfoil%5D=1&filter%5Bprice_op%5D=&filter%5Bprice%5D=");
+        getAllCards("http://www.cardkingdom.com/purchasing/mtg_singles?filter%5Bipp%5D=100&filter%5Bsort%5D=name&filter%5Bsearch%5D=mtg_advanced&filter%5Bname%5D=&filter%5Bcategory_id%5D=0&filter%5Bprice_op%5D=&filter%5Bprice%5D=&filter%5Bnonfoil%5D=1&filter%5Bfoil%5D=1");
     }
 
     private static void getAllCards(String url) throws Exception {
