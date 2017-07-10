@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TrollAndToad {
 	
@@ -57,8 +59,8 @@ public class TrollAndToad {
 
 	private static Card generateCard(String card) {
 		Card result = new Card();
-		String[] attributes = card.split(",");
-			if (attributes.length > 0) {
+        String[] attributes = parseCSVString(card);
+        if (attributes.length > 0) {
 				result.setSite("TT");
 				result.setSet(attributes[1].replace("\"", "").trim());
 				result.setName(attributes[2].replace("\"", "").trim());
@@ -74,4 +76,22 @@ public class TrollAndToad {
 		return result;
 	}
 
+    private static String[] parseCSVString(String card) {
+        List<String> attributesList = new ArrayList<>();
+
+        int start = card.indexOf('\"');
+        int end = card.indexOf('\"', start + 1);
+
+        while (start != -1 && end != -1) {
+            attributesList.add(card.substring(start, end));
+            start = card.indexOf('\"', end + 1);
+            end = card.indexOf('\"', start + 1);
+        }
+
+        String[] attributes = new String[attributesList.size()];
+        for (int i = 0; i < attributesList.size(); i++) {
+            attributes[i] = attributesList.get(i);
+        }
+        return attributes;
+    }
 }

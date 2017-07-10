@@ -135,7 +135,7 @@ public class Scrape extends TimerTask {
 
 				ScraperUtil.log("Sorting Cards");
 
-				SharedResources.driver.quit();
+
 
 
 				/* cards.addAll(GamingEtc.getCards()); /* try {
@@ -174,11 +174,11 @@ public class Scrape extends TimerTask {
 			} catch (IOException e) {
                 ScraperUtil.log(e.getStackTrace());
                 ScraperUtil.log("IOException");
-				SharedResources.driver.quit();
 			} catch (Exception e) {
 				ScraperUtil.log(e);
 				ScraperUtil.log(e.getStackTrace());
                 ScraperUtil.log("Exception");
+			} finally {
 				SharedResources.driver.quit();
 			}
 

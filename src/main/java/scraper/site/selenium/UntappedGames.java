@@ -124,7 +124,7 @@ public class UntappedGames {
 
         SharedResources.driver.navigate().to("http://www.untappedgames.com/buylist");
 
-        List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.querySelectorAll('a.depth_3')");
+        List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.querySelectorAll('a.leaf_category')");
 
         for (RemoteWebElement set : setLinks) {
             String link = set.getAttribute("href");
