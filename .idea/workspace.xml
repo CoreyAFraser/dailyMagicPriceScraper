@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60b1a9fe-1105-460c-8402-10d69d9203ec" name="Default" comment="Update CFB and Cardkingdom">
+    <list default="true" id="60b1a9fe-1105-460c-8402-10d69d9203ec" name="Default" comment="workspace">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/main/Gmail.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/main/Gmail.java" />
     </list>
@@ -183,7 +183,7 @@
     <property name="project.structure.side.proportion" value="0.25856355" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="gma&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Gmail.java&#10;scrap&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Scrape.java&#10;Gmai&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Gmail.java&#10;cha&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/site/selenium/ChannelFireball.java&#10;gmail&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Gmail.java&#10;Chann&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/site/selenium/ChannelFireball.java&#10;Star&#9;FILE&#9;file://C:/Users/ElayneF/Documents/seleniumpricescraper/src/main/java/scraper/site/StarCityGames/StarCityGames.java&#10;star&#9;FILE&#9;file://C:/Users/ElayneF/Documents/seleniumpricescraper/src/scraper/site/StarCityGames/StarCityGames.java&#10;Scrap&#9;FILE&#9;file://C:/Users/Corey/Documents/workspace/dailyMagicPriceScraper/src/scraper/util/ScraperUtil.java&#10;Trol&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/site/TrollAndToad.java&#10;Scrape&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Scrape.java&#10;Card.java&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Card.java" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/.idea/workspace.xml&#10;gma&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Gmail.java&#10;scrap&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Scrape.java&#10;Gmai&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Gmail.java&#10;cha&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/site/selenium/ChannelFireball.java&#10;gmail&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Gmail.java&#10;Chann&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/site/selenium/ChannelFireball.java&#10;Star&#9;FILE&#9;file://C:/Users/ElayneF/Documents/seleniumpricescraper/src/main/java/scraper/site/StarCityGames/StarCityGames.java&#10;star&#9;FILE&#9;file://C:/Users/ElayneF/Documents/seleniumpricescraper/src/scraper/site/StarCityGames/StarCityGames.java&#10;Scrap&#9;FILE&#9;file://C:/Users/Corey/Documents/workspace/dailyMagicPriceScraper/src/scraper/util/ScraperUtil.java&#10;Trol&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/site/TrollAndToad.java&#10;Scrape&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Scrape.java&#10;Card.java&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Card.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -309,6 +309,14 @@
       <option name="presentableId" value="Default" />
       <updated>1479060041958</updated>
     </task>
+    <task id="LOCAL-00001" summary="workspace">
+      <created>1505714379169</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1505714379169</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -358,7 +366,8 @@
     <MESSAGE value="Convert to Maven&#10;Code Clean up&#10;Address Warnings" />
     <MESSAGE value="Reimport Maven" />
     <MESSAGE value="Update CFB and Cardkingdom" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update CFB and Cardkingdom" />
+    <MESSAGE value="workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -665,8 +674,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="786" column="21" selection-start-line="786" selection-start-column="21" selection-end-line="786" selection-end-column="21" />
+        <state relative-caret-position="521">
+          <caret line="755" column="9" selection-start-line="755" selection-start-column="8" selection-end-line="755" selection-end-column="9" />
           <folding />
         </state>
       </provider>
