@@ -168,17 +168,14 @@ public class BGs {
 				Elements quantities = productRows.select(".qty");
 				qty = quantities.get(0).text().replace("x", "").trim();
 				card.setQuantity(qty);
-				
-				if (card.getName().length() > SharedResources.nameLength)
-					SharedResources.nameLength = card.getName().length();
-				if (card.getSet().length() > SharedResources.setLength)
-					SharedResources.setLength = card.getSet().length();
 
-				if(!SharedResources.cards.contains(card)) {
-					SharedResources.cards.add(card);
-					cards++;
-				}
-			}
+                SharedResources.addCard(card);
+
+//				if(!SharedResources.cards.contains(card)) {
+//					SharedResources.cards.add(card);
+//					cards++;
+//				}
+            }
 				cardsThreadsMap.remove(id);
 
 		}

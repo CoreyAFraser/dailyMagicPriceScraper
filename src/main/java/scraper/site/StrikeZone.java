@@ -27,13 +27,8 @@ public class StrikeZone {
 	
 			while ((tmp = dis.readLine()) != null) {  
 			    card = generateCard(tmp);
-			    if(card.getName().length() > SharedResources.nameLength)
-			    	SharedResources.nameLength = card.getName().length();
-			    if(card.getSet().length() > SharedResources.setLength)
-			    	SharedResources.setLength = card.getSet().length();
-			    if(card.getMintPrice() != 0.0)
-			    	SharedResources.cards.add(card);
-			}  
+                SharedResources.addCard(card);
+            }
 			dis.close(); 
 			
 		} catch (java.net.UnknownHostException e) {

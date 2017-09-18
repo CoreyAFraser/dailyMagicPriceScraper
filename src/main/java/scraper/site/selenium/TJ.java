@@ -101,15 +101,9 @@ public class TJ {
 						card.setName(nameText.trim());
 						card.setFoil(foil);
 						card.setSet(set.trim());
-						
-						if(card.getName().length() > SharedResources.nameLength)
-				    		SharedResources.nameLength = card.getName().length();
-				    	if(card.getSet().length() > SharedResources.setLength)
-				    		SharedResources.setLength = card.getSet().length();
-						
-						SharedResources.cards.add(card);
-					
-					}
+
+                        SharedResources.addCard(card);
+                    }
 				}
 			} catch(java.lang.ArrayIndexOutOfBoundsException e) {
 				ScraperUtil.log(cards.length);

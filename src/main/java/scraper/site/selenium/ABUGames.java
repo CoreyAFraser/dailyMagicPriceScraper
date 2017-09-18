@@ -87,13 +87,9 @@ public class ABUGames {
 						endIndex = text.indexOf("<", beginIndex);
 						card.setPldPrice(text.substring(beginIndex, endIndex).replace("$", "").trim());
 
-						if (card.getName().length() > SharedResources.nameLength)
-							SharedResources.nameLength = card.getName().length();
-						if (card.getSet().length() > SharedResources.setLength)
-							SharedResources.setLength = card.getSet().length();
+                        SharedResources.addCard(card);
 
 						index = endIndex;
-						SharedResources.cards.add(card);
 					}
 				}
 				

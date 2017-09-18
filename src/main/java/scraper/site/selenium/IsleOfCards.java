@@ -112,12 +112,7 @@ public class IsleOfCards {
             //card.setFoil(foil);
 
             if (addAble) {
-                if (card.getName().length() > SharedResources.nameLength)
-                    SharedResources.nameLength = card.getName().length();
-                if (card.getSet().length() > SharedResources.setLength)
-                    SharedResources.setLength = card.getSet().length();
-
-                SharedResources.cards.add(card);
+                SharedResources.addCard(card);
                 //ScraperUtil.log("Card: " + card.getName());
             }
 

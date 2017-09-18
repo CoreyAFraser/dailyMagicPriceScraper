@@ -78,12 +78,7 @@ public class UntappedGames {
                         endIndex = cardDetails.indexOf("<", beginIndex);
                         card.setQuantity(cardDetails.substring(beginIndex, endIndex).replace("x", "").trim());
 
-                        if (card.getName().length() > SharedResources.nameLength)
-                            SharedResources.nameLength = card.getName().length();
-                        if (card.getSet().length() > SharedResources.setLength)
-                            SharedResources.setLength = card.getSet().length();
-
-                        SharedResources.cards.add(card);
+                        SharedResources.addCard(card);
                     } catch (NumberFormatException e) {
                         ScraperUtil.log("Blank price for " + card.getName());
                         ScraperUtil.log(e.getStackTrace());

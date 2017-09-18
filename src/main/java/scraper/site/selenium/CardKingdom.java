@@ -56,13 +56,7 @@ public class CardKingdom {
                         ScraperUtil.log("CardKingdom Elite Card: " + card.getName());
                     }
 
-                    if (card.getName().length() > SharedResources.nameLength)
-                        SharedResources.nameLength = card.getName().length();
-                    if (card.getSet().length() > SharedResources.setLength)
-                        SharedResources.setLength = card.getSet().length();
-
-                    SharedResources.cards.add(card);
-
+                    SharedResources.addCard(card);
                 }
 
                 List<WebElement> nextPageLinks = SharedResources.driver.findElements(By.cssSelector(".pagination li:last-child a"));

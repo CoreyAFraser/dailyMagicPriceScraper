@@ -39,11 +39,7 @@ public class StarCityGames {
                 for (SCGCard scgCard : scgCards) {
                     if (scgCard.isAddable()) {
                         Card card = scgCard.toCardWithSet(scgSearchDTO.getSetName());
-                        if (card.getName().length() > SharedResources.nameLength)
-                            SharedResources.nameLength = card.getName().length();
-                        if (card.getSet().length() > SharedResources.setLength)
-                            SharedResources.setLength = card.getSet().length();
-                        SharedResources.cards.add(card);
+                        SharedResources.addCard(card);
                     }
                 }
             }
