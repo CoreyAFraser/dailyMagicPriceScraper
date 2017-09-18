@@ -3,19 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="60b1a9fe-1105-460c-8402-10d69d9203ec" name="Default" comment="Update CFB and Cardkingdom">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/main/Card.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/main/Card.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/main/Scrape.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/main/Scrape.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/site/StarCityGames/StarCityGames.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/site/StarCityGames/StarCityGames.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/site/StrikeZone.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/site/StrikeZone.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/site/TrollAndToad.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/site/TrollAndToad.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/ABUGames.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/ABUGames.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/BGs.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/BGs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/CardKingdom.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/CardKingdom.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/ChannelFireball.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/ChannelFireball.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/IsleOfCards.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/IsleOfCards.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/TJ.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/TJ.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/UntappedGames.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/site/selenium/UntappedGames.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/util/shared/SharedResources.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/util/shared/SharedResources.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scraper/main/Gmail.java" afterPath="$PROJECT_DIR$/src/main/java/scraper/main/Gmail.java" />
     </list>
     <ignored path="seleniumpricescraper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,34 +24,34 @@
     <favorites_list name="seleniumpricescraper" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file leaf-file-name="Scrape.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/scraper/main/Scrape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="152" column="40" selection-start-line="152" selection-start-column="37" selection-end-line="152" selection-end-column="40" />
+            <state relative-caret-position="198">
+              <caret line="85" column="21" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1505714110150" expanded="true" signature="11212:11213" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Card.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/scraper/main/Card.java">
+      <file leaf-file-name="UntappedGames.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/scraper/site/selenium/UntappedGames.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="219" column="35" selection-start-line="219" selection-start-column="26" selection-end-line="219" selection-end-column="35" />
+            <state relative-caret-position="34">
+              <caret line="100" column="23" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SharedResources.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/scraper/util/shared/SharedResources.java">
+      <file leaf-file-name="Gmail.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/scraper/main/Gmail.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+            <state relative-caret-position="360">
+              <caret line="29" column="70" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -117,7 +105,6 @@
         <option value="$PROJECT_DIR$/src/main/java/scraper/site/StarCityGames/SCGCard.java" />
         <option value="$PROJECT_DIR$/src/main/java/scraper/site/StarCityGames/SCGSearchDTO.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/scraper/main/Gmail.java" />
         <option value="$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-remote-driver/2.53.1/selenium-remote-driver-2.53.1.jar!/org/openqa/selenium/remote/RemoteWebElement.class" />
         <option value="$PROJECT_DIR$/src/main/java/scraper/site/TrollAndToad.java" />
         <option value="$PROJECT_DIR$/src/main/java/scraper/main/Scrape.java" />
@@ -151,9 +138,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1272" />
-    <option name="width" value="1294" />
-    <option name="height" value="1047" />
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1375" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -180,12 +168,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane />
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -195,7 +183,7 @@
     <property name="project.structure.side.proportion" value="0.25856355" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="cha&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/site/selenium/ChannelFireball.java&#10;gmail&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Gmail.java&#10;scrap&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Scrape.java&#10;Chann&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/site/selenium/ChannelFireball.java&#10;Star&#9;FILE&#9;file://C:/Users/ElayneF/Documents/seleniumpricescraper/src/main/java/scraper/site/StarCityGames/StarCityGames.java&#10;star&#9;FILE&#9;file://C:/Users/ElayneF/Documents/seleniumpricescraper/src/scraper/site/StarCityGames/StarCityGames.java&#10;Scrap&#9;FILE&#9;file://C:/Users/Corey/Documents/workspace/dailyMagicPriceScraper/src/scraper/util/ScraperUtil.java&#10;Trol&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/site/TrollAndToad.java&#10;Scrape&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Scrape.java&#10;Card.java&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Card.java" />
+    <property name="SearchEverywhereHistoryKey" value="gma&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Gmail.java&#10;scrap&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Scrape.java&#10;Gmai&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Gmail.java&#10;cha&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/site/selenium/ChannelFireball.java&#10;gmail&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/main/Gmail.java&#10;Chann&#9;FILE&#9;file:///home/scraper/Documents/workspace/dailyMagicPriceScraper/src/main/java/scraper/site/selenium/ChannelFireball.java&#10;Star&#9;FILE&#9;file://C:/Users/ElayneF/Documents/seleniumpricescraper/src/main/java/scraper/site/StarCityGames/StarCityGames.java&#10;star&#9;FILE&#9;file://C:/Users/ElayneF/Documents/seleniumpricescraper/src/scraper/site/StarCityGames/StarCityGames.java&#10;Scrap&#9;FILE&#9;file://C:/Users/Corey/Documents/workspace/dailyMagicPriceScraper/src/scraper/util/ScraperUtil.java&#10;Trol&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/site/TrollAndToad.java&#10;Scrape&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Scrape.java&#10;Card.java&#9;FILE&#9;file:///home/corey/Documents/workspace/seleniumpricescraper/src/scraper/main/Card.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -324,30 +312,30 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1272" y="0" width="1294" height="1047" extended-state="0" />
+    <frame x="65" y="24" width="1375" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22836363" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32496512" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38678223" sideWeight="0.50586355" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21745455" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17609255" sideWeight="0.49713466" order="2" side_tool="false" content_ui="tabs" x="-149" y="509" width="1375" height="609" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22799097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329698" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.84644914" sideWeight="0.49413645" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3249453" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4082397" sideWeight="0.49713466" order="2" side_tool="false" content_ui="tabs" x="-149" y="509" width="1375" height="609" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29463172" sideWeight="0.49573562" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.84644914" sideWeight="0.49413645" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -410,19 +398,12 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/scraper/site/selenium/BGs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1116">
-          <caret line="75" column="54" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/scraper/main/Scrape.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1505714110150" expanded="true" signature="11212:11213" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -488,7 +469,7 @@
         <state relative-caret-position="2340">
           <caret line="156" column="13" selection-start-line="156" selection-start-column="13" selection-end-line="156" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1505714110150" expanded="true" signature="11212:11213" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -560,7 +541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -585,25 +565,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/scraper/main/Gmail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="456" column="19" selection-start-line="456" selection-start-column="19" selection-end-line="456" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/ArrayList.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/scraper/site/TrollAndToad.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
           <caret line="43" column="46" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -636,7 +602,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/scraper/site/selenium/UntappedGames.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/scraper/site/selenium/ABUGames.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="80" column="54" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
@@ -650,7 +616,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/scraper/site/selenium/ABUGames.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/scraper/site/selenium/CardKingdom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="91" column="41" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
@@ -658,10 +624,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/scraper/site/selenium/CardKingdom.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/scraper/site/selenium/UntappedGames.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="58" column="50" selection-start-line="58" selection-start-column="50" selection-end-line="58" selection-end-column="50" />
+        <state relative-caret-position="34">
+          <caret line="100" column="23" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -675,10 +641,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/scraper/main/Scrape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="152" column="40" selection-start-line="152" selection-start-column="37" selection-end-line="152" selection-end-column="40" />
+        <state relative-caret-position="198">
+          <caret line="85" column="21" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1505714110150" expanded="true" signature="11212:11213" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -687,7 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="219" column="35" selection-start-line="219" selection-start-column="26" selection-end-line="219" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -695,6 +660,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="469">
           <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="786" column="21" selection-start-line="786" selection-start-column="21" selection-end-line="786" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/scraper/main/Gmail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="29" column="70" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="70" />
           <folding />
         </state>
       </provider>
