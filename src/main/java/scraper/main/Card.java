@@ -111,7 +111,7 @@ public class Card {
         if ((set.contains("zendikar") && (set.contains("expeditions")) || set.contains("exps")))
             set = "zendikar expeditions";
 
-        if (!set.contains("commander") && !set.contains("conspiracy") && !set.contains("from the vault") && !set.contains("ftv")) {
+        if (!set.contains("commander") && !set.contains("conspiracy") && !set.contains("master") && !set.contains("from the vault") && !set.contains("ftv")) {
             if (set.contains("2010"))
                 set = "m10";
 

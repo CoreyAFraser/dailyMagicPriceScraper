@@ -14,7 +14,9 @@ class Gmail {
 
     static void send(String eMail, String message, String... files) {
         final String userName = "DailyMagicList@gmail.com";
-        final String password = "magicPriceScraper";
+
+        int tries = 0;
+        boolean sending = true;
 
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
@@ -31,29 +33,36 @@ class Gmail {
         Session session = Session.getInstance(properties, auth);
         Message msg = new MimeMessage(session);
 
-        try {
-            msg.setFrom(new InternetAddress(userName));
-            InternetAddress[] toAddresses = { new InternetAddress(eMail) };
-	        msg.setRecipients(Message.RecipientType.TO, toAddresses);
-            msg.setSubject("New Price List");
-            msg.setSentDate(new Date());
-            MimeBodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setContent(message, "text/html");
-            Multipart multipart = new MimeMultipart();
-            multipart.addBodyPart(messageBodyPart);
+        while (sending) {
+            try {
+                sending = false;
+                tries++;
+                msg.setFrom(new InternetAddress(userName));
+                InternetAddress[] toAddresses = {new InternetAddress(eMail)};
+                msg.setRecipients(Message.RecipientType.TO, toAddresses);
+                msg.setSubject("New Price List");
+                msg.setSentDate(new Date());
+                MimeBodyPart messageBodyPart = new MimeBodyPart();
+                messageBodyPart.setContent(message, "text/html");
+                Multipart multipart = new MimeMultipart();
+                multipart.addBodyPart(messageBodyPart);
 
-            for (String file : files) {
-                MimeBodyPart attachPart = new MimeBodyPart();
-                attachPart.attachFile(file);
-                multipart.addBodyPart(attachPart);
+                for (String file : files) {
+                    MimeBodyPart attachPart = new MimeBodyPart();
+                    attachPart.attachFile(file);
+                    multipart.addBodyPart(attachPart);
+                }
+
+                msg.setContent(multipart);
+                Transport.send(msg);
+
+            } catch (Exception e) {
+                ScraperUtil.log(e);
+                ScraperUtil.log(e.getStackTrace());
+                if (tries < 3) {
+                    sending = true;
+                }
             }
-
-	        msg.setContent(multipart);
-	        Transport.send(msg);
-
-        } catch (Exception e) {
-            ScraperUtil.log(e);
-            ScraperUtil.log(e.getStackTrace());
         }
 	}
 }
