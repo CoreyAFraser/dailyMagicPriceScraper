@@ -2,10 +2,10 @@ package scraper.main;
 
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import scraper.site.ABUGames.ABUGames;
 import scraper.site.StarCityGames.StarCityGames;
 import scraper.site.StrikeZone;
 import scraper.site.TrollAndToad;
-import scraper.site.selenium.ABUGames;
 import scraper.site.selenium.CardKingdom;
 import scraper.site.selenium.ChannelFireball;
 import scraper.site.selenium.UntappedGames;
@@ -77,6 +77,17 @@ public class Scrape extends TimerTask {
                 }
                 sortCards();
 
+                try {
+                    ScraperUtil.log("ABU Starting");
+                    ABUGames.getCards();
+                    ScraperUtil.log("ABU Done");
+                } catch (java.io.FileNotFoundException e) {
+                    message = message + eol + "ABU appears to be down";
+                    ScraperUtil.log("ABU Error");
+                    ScraperUtil.log(e.getStackTrace());
+                }
+                sortCards();
+
                 ScraperUtil.log("Starting Browser");
                 SharedResources.driver = new FirefoxDriver();
                 SharedResources.driver.manage().window().maximize();
@@ -93,18 +104,6 @@ public class Scrape extends TimerTask {
                     ScraperUtil.log(e.getStackTrace());
                 }
                 sortCards();
-
-                try {
-                    ScraperUtil.log("ABU Starting");
-                    ABUGames.getCards();
-                    ScraperUtil.log("ABU Done");
-                } catch (java.io.FileNotFoundException e) {
-                    message = message + eol + "ABU appears to be down";
-                    ScraperUtil.log("ABU Error");
-                    ScraperUtil.log(e.getStackTrace());
-                }
-                sortCards();
-
                 try {
                     ScraperUtil.log("Channel Fireball Starting");
                     ChannelFireball.getCards();
@@ -133,8 +132,6 @@ public class Scrape extends TimerTask {
                 sortCards();
 
                 ScraperUtil.log("Sorting Cards");
-
-
 
 
 				/* cards.addAll(GamingEtc.getCards()); /* try {

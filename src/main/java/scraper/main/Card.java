@@ -1,5 +1,6 @@
 package scraper.main;
 
+import scraper.site.ABUGames.ABUCard;
 import scraper.util.shared.SharedResources;
 
 public class Card {
@@ -18,6 +19,21 @@ public class Card {
         this.name = "";
         this.foil = "";
         this.mintPrice = 0.0;
+    }
+
+    public Card(ABUCard abuCard) {
+        this.setSet(abuCard.getSet().get(0));
+        this.setSite("ABU");
+        if (abuCard.getFoil().get(0).equalsIgnoreCase("Foil")) {
+            this.setFoil("Foil");
+        }
+        this.setName(abuCard.getName());
+        if (abuCard.getCondition().equalsIgnoreCase("SP")) {
+            this.setPldPrice(abuCard.getPrice().toString());
+        } else if(abuCard.getCondition().equalsIgnoreCase("NM-M")) {
+            this.setMintPrice(abuCard.getPrice().toString());
+        }
+        this.setQuantity(abuCard.getQuantity().toString());
     }
 
     public void setQuantity(String quantity) {
