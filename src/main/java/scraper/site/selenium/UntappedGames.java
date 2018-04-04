@@ -2,29 +2,24 @@ package scraper.site.selenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.remote.RemoteWebElement;
 import scraper.main.Card;
 import scraper.util.ScraperUtil;
 import scraper.util.shared.SharedResources;
 
-import java.util.LinkedHashSet;
 import java.util.List;
 
 public class UntappedGames {
 
-    public static void getCards() throws Exception {
-        String url;
-        Object[] setArray = getAllSets().toArray();
+    private static final String BUYLIST = "http://www.untappedgames.com/advanced_search?utf8=✓&search[fuzzy_search]=&search[tags_name_eq]=&search[sell_price_gte]=&search[sell_price_lte]=&search[buy_price_gte]=&search[buy_price_lte]=&search[in_stock]=0&buylist_mode=0&buylist_mode=1&search[category_ids_with_descendants][]=&search[category_ids_with_descendants][]=8&search[category_ids_with_descendants][]=12&search[sort]=name&search[direction]=ascend&commit=Search&search[catalog_group_id_eq]=";
 
-        for (Object aSetArray : setArray) {
-            url = (String) aSetArray;
-            getAllCards(url);
-        }
+    public static void getCards() throws Exception {
+        getAllCards();
     }
 
-
-    private static void getAllCards(String url) throws Exception {
-        Object[] pages = getAllPages(url).toArray();
+    private static void getAllCards() throws Exception {
+        String url = BUYLIST;
         Object[] cardElements;
         String cardDetails;
         Card card = new Card();
@@ -32,103 +27,95 @@ public class UntappedGames {
                 priceString;
         int beginIndex,
                 endIndex;
+        boolean next = true;
 
-
-        for (Object page : pages) {
-            SharedResources.driver.navigate().to((String) page);
-            cardElements = SharedResources.driver.findElements(By.className("product_row")).toArray();
+        while (next) {
             try {
-                for (int j = 0; j < cardElements.length; j++) {
-                    try {
-                        card = new Card();
-                        card.setSite("UG");
+                SharedResources.driver.navigate().to(url);
+                cardElements = SharedResources.driver.findElements(By.cssSelector(".products.detailed > .product.enable-msrp")).toArray();
+                try {
+                    for (int j = 0; j < cardElements.length; j++) {
+                        try {
+                            card = new Card();
+                            card.setSite("UG");
 
-                        cardDetails = (String) ((JavascriptExecutor) SharedResources.driver).executeScript("return arguments[0].innerHTML", cardElements[j]);
-                        beginIndex = cardDetails.indexOf("<td") + 1;
-                        beginIndex = cardDetails.indexOf("<td", beginIndex) + 1;
-                        beginIndex = cardDetails.indexOf("/buylist/", beginIndex);
-                        beginIndex = cardDetails.indexOf(">", beginIndex) + 1;
-                        endIndex = cardDetails.indexOf("<", beginIndex);
-                        nameFoil = cardDetails.substring(beginIndex, endIndex);
-                        if (nameFoil.contains("Foil")) {
-                            nameFoil = nameFoil.replace(" - Foil", "");
-                            card.setName(nameFoil);
-                            card.setFoil("Foil");
-                        } else {
-                            card.setName(nameFoil);
-                            card.setFoil("");
+                            cardDetails = (String) ((JavascriptExecutor) SharedResources.driver).executeScript("return arguments[0].innerHTML", cardElements[j]);
+                            beginIndex = cardDetails.indexOf("itemprop=\"name\"");
+                            beginIndex = cardDetails.indexOf(">", beginIndex) + 1;
+                            endIndex = cardDetails.indexOf("</h4", beginIndex);
+                            nameFoil = cardDetails.substring(beginIndex, endIndex);
+                            if (nameFoil.contains("Foil")) {
+                                nameFoil = nameFoil.replace(" - Foil", "");
+                                card.setName(nameFoil);
+                                card.setFoil("Foil");
+                            } else {
+                                card.setName(nameFoil);
+                                card.setFoil("");
+                            }
+
+                            beginIndex = cardDetails.indexOf("category");
+                            beginIndex = cardDetails.indexOf(">", beginIndex) + 1;
+                            endIndex = cardDetails.indexOf("<", beginIndex);
+                            card.setSet(cardDetails.substring(beginIndex, endIndex).trim());
+
+                            beginIndex = cardDetails.indexOf("class=\"regular price\"");
+                            beginIndex = cardDetails.indexOf(">", beginIndex) + 1;
+                            endIndex = cardDetails.indexOf("<", beginIndex);
+                            priceString = cardDetails.substring(beginIndex, endIndex).replace("$", "");
+                            priceString = priceString.replace(",", "");
+                            priceString = priceString.trim();
+                            card.setMintPrice(priceString);
+                            card.setPldPrice("0");
+
+                            beginIndex = cardDetails.indexOf("qty");
+                            beginIndex = cardDetails.indexOf("max", beginIndex);
+                            beginIndex = cardDetails.indexOf("=", beginIndex) + 1;
+                            endIndex = cardDetails.indexOf("\"", beginIndex);
+                            card.setQuantity(cardDetails.substring(beginIndex, endIndex).replace("x", "").trim());
+
+                            SharedResources.addCard(card);
+                        } catch (NumberFormatException e) {
+                            ScraperUtil.log("Blank price for " + card.getName());
+                            ScraperUtil.log(e.getStackTrace());
                         }
-
-                        beginIndex = cardDetails.indexOf("category_name");
-                        beginIndex = cardDetails.indexOf(">", beginIndex) + 1;
-                        endIndex = cardDetails.indexOf("<", beginIndex);
-                        card.setSet(cardDetails.substring(beginIndex, endIndex).trim());
-
-                        beginIndex = cardDetails.indexOf("class=\"price\"");
-                        beginIndex = cardDetails.indexOf(">", beginIndex) + 1;
-                        endIndex = cardDetails.indexOf("<", beginIndex);
-                        priceString = cardDetails.substring(beginIndex, endIndex).replace("$", "");
-                        priceString = priceString.replace(",", "");
-                        priceString = priceString.trim();
-                        card.setMintPrice(priceString);
-                        card.setPldPrice("0");
-
-                        beginIndex = cardDetails.indexOf("qty");
-                        beginIndex = cardDetails.indexOf(">", beginIndex) + 1;
-                        endIndex = cardDetails.indexOf("<", beginIndex);
-                        card.setQuantity(cardDetails.substring(beginIndex, endIndex).replace("x", "").trim());
-
-                        SharedResources.addCard(card);
-                    } catch (NumberFormatException e) {
-                        ScraperUtil.log("Blank price for " + card.getName());
-                        ScraperUtil.log(e.getStackTrace());
                     }
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    ScraperUtil.log(cardElements.length);
+                    ScraperUtil.log(e.getStackTrace());
                 }
-            } catch (ArrayIndexOutOfBoundsException e) {
-                ScraperUtil.log(cardElements.length);
+
+                List<RemoteWebElement> nextPageLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByClassName('next_page')");
+                if (nextPageLinks != null && !nextPageLinks.isEmpty()) {
+                    RemoteWebElement nextPageLink = nextPageLinks.get(0);
+                    url = nextPageLink.getAttribute("href");
+                    nextPageLink.click();
+                } else {
+                    next = false;
+                }
+            } catch (WebDriverException e) {
+                ScraperUtil.log(url + " doesn't exist");
+                ScraperUtil.log(e.getMessage());
+                ScraperUtil.log(e.getStackTrace());
+                try {
+                    List<RemoteWebElement> nextPageLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.getElementsByClassName('next_page')");
+                    if (nextPageLinks != null && !nextPageLinks.isEmpty()) {
+                        RemoteWebElement nextPageLink = nextPageLinks.get(0);
+                        url = nextPageLink.getAttribute("href");
+                        ScraperUtil.log(url);
+                        nextPageLink.click();
+                    } else {
+                        next = false;
+                    }
+                } catch (WebDriverException ex) {
+                    ScraperUtil.log(url + " really doesn't exist");
+                    ScraperUtil.log(ex.getMessage());
+                    ScraperUtil.log(ex.getStackTrace());
+                    next = false;
+                }
+            } catch (Exception e) {
+                ScraperUtil.log(e);
                 ScraperUtil.log(e.getStackTrace());
             }
-
         }
     }
-
-
-    private static LinkedHashSet<String> getAllPages(String url) throws Exception {
-        LinkedHashSet<String> pages = new LinkedHashSet<>();
-
-        String link;
-
-        pages.add(url);
-        try {
-            SharedResources.driver.navigate().to(url);
-            List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.querySelectorAll('a.pagination')");
-
-            for (RemoteWebElement set : setLinks) {
-                link = set.getAttribute("href");
-                pages.add(link);
-            }
-        } catch (org.openqa.selenium.WebDriverException e) {
-            ScraperUtil.log("Page Not Found: " + url);
-        }
-
-        return pages;
-    }
-
-    private static LinkedHashSet<String> getAllSets() throws Exception {
-        LinkedHashSet<String> sets = new LinkedHashSet<>();
-
-        SharedResources.driver.navigate().to("http://www.untappedgames.com/buylist");
-
-        List<RemoteWebElement> setLinks = (List<RemoteWebElement>) ((JavascriptExecutor) SharedResources.driver).executeScript("return document.querySelectorAll('a.leaf_category')");
-
-        for (RemoteWebElement set : setLinks) {
-            String link = set.getAttribute("href");
-            if (link.contains("magic")) {
-                sets.add(link);
-            }
-        }
-
-        return sets;
-    }
-
 }
