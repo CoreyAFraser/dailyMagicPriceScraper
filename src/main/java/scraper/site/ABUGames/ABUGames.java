@@ -2,6 +2,7 @@ package scraper.site.ABUGames;
 
 import com.google.gson.Gson;
 import scraper.main.Card;
+import scraper.main.Scrape;
 import scraper.util.ScraperUtil;
 import scraper.util.shared.SharedResources;
 
@@ -10,9 +11,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ABUGames {
+
+    final static int NUMBER_OF_CARDS_PER_CALL = 5000;
 
     public static void getCards() throws IOException {
         ScraperUtil.log("Starting ABU Games");
@@ -21,16 +25,29 @@ public class ABUGames {
         ABUCards abuCards = getCardsStartingAt(index);
         List<ABUCard> cards = abuCards.getResponse().getABUCards();
         while (cards != null && cards.size() != 0) {
+            int j = 0;
+
             for (ABUCard abuCard : cards) {
                 if (abuCard.getCondition().equalsIgnoreCase("SP") || abuCard.getCondition().equalsIgnoreCase("NM-M")) {
                     Card card = new Card(abuCard);
                     SharedResources.addCard(card);
-                    ScraperUtil.log(card);
+                    j++;
                 }
             }
-            index += 10000;
+//            ScraperUtil.log("Number of Cards in Call: " + cards.size());
+//            ScraperUtil.log("Number of Cards Added: " + j);
+//            ScraperUtil.log("Number of Cards: " + SharedResources.getCards().size());
+
+            index += NUMBER_OF_CARDS_PER_CALL;
+//            ScraperUtil.log("Index: " + index);
             abuCards = getCardsStartingAt(index);
             cards = abuCards.getResponse().getABUCards();
+
+
+//            ScraperUtil.log("Current Heap: ");
+//            ScraperUtil.log("   Heap: " + (Runtime.getRuntime().totalMemory() / (1024 * 1024)));
+//            ScraperUtil.log("   Max Heap: " + (Runtime.getRuntime().maxMemory() / (1024 * 1024)));
+//            ScraperUtil.log("   Heap Free: " + (Runtime.getRuntime().freeMemory() / (1024 * 1024)));
         }
 
         ScraperUtil.log("ABU Games ending");
@@ -104,7 +121,7 @@ public class ABUGames {
                     "20OR%20%22Welcome%20Deck%202017%22%20OR%20%22World%20Championship%22%20OR%20%22Worldwake%22%20OR" +
                     "%20%22Zendikar%22%20OR%20%22Zendikar%20Expeditions%22%20OR%20%22Zendikar%20vs.%20Eldrazi%22)%20%" +
                     "2Bdisplay_title%3A*&sort=magic_edition_sort%20asc,%20display_title%20asc&start=" + startIndex +
-                    "&rows=" + (startIndex + 9999) + "&wt=json";
+                    "&rows=" + NUMBER_OF_CARDS_PER_CALL + "&wt=json";
 
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -121,7 +138,7 @@ public class ABUGames {
                 response.append(inputLine);
             }
             in.close();
-
+            con.disconnect();
             return new Gson().fromJson(response.toString(), ABUCards.class);
 
         } catch (Exception e) {

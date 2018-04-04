@@ -7,8 +7,6 @@ public class ABUCard {
 
     @SerializedName("card_style")
     public List<String> foil = null;
-    @SerializedName("language")
-    public List<String> language = null;
     @SerializedName("magic_edition")
     public List<String> set = null;
     @SerializedName("simple_title")
@@ -60,10 +58,6 @@ public class ABUCard {
         this.foil = foil;
     }
 
-    public void setLanguage(List<String> language) {
-        this.language = language;
-    }
-
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
@@ -76,7 +70,6 @@ public class ABUCard {
     public String toString() {
         return "ABUCard{" +
                 "foil=" + foil +
-                ", language=" + language +
                 ", set=" + set +
                 ", name='" + name + '\'' +
                 ", quantity=" + quantity +

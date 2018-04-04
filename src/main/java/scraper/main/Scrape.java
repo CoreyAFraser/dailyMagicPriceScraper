@@ -175,7 +175,10 @@ public class Scrape extends TimerTask {
                 ScraperUtil.log(e.getStackTrace());
                 ScraperUtil.log("Exception");
             } finally {
-                SharedResources.driver.quit();
+                ScraperUtil.calculateElapsedTime();
+                if (SharedResources.driver != null) {
+                    SharedResources.driver.quit();
+                }
             }
 
             sortCards();

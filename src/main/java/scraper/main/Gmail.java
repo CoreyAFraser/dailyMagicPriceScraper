@@ -14,17 +14,16 @@ class Gmail {
 
     static void send(String eMail, String message, String... files) {
         final String userName = "DailyMagicList@gmail.com";
-
+        final String password = "";
         int tries = 0;
         boolean sending = true;
 
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", 587);
+        properties.put("mail.smtp.port", "587");
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.user", userName);
-        properties.put("mail.password", password);
+        properties.put("mail.transport.protocol", "smtp");
         Authenticator auth = new Authenticator() {
             public PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(userName, password);
